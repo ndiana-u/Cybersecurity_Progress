@@ -1,0 +1,25 @@
+LEVEL GOAL
+The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1.
+
+STEPS TO SOLVE
+Find out how to log in using ssh on command prompt.
+ssh username@root access = ssh bandit0@bandit.labs.overthewire.org
+To change port number "ssh bandit0@bandit.labs.overthewire.org -p 2220"
+
+ERRORS
+1. permission denied after trying to get access because it was still on the default port 22
+i tried changing the port in the sshd_config file using "nano /etc/ssh/sshd_config" but modifiaction to the file was denied.
+realized i didnt have root access.
+i got root access by running git bash as an administrator 
+-search for git bash
+-select run as administrator
+after going round nigeria trying to get root access and change my sshd_config file. even going as far as running my kali linux vm to log in i realized my error.
+to log in with ssh and change the port name is simple by "ssh username@remoteserver -p newPortNumber"
+
+2. crosscheck your username and password. Ensure you type in the right words.
+I wasted precious minutes on this error.
+
+
+
+level 1 password
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

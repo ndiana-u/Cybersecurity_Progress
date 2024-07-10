@@ -1,0 +1,11 @@
+DESCRIPTION
+The password for the next level is stored in a file called readme located in the home directory.
+ Use this password to log into bandit1 using SSH.
+
+
+STEPS
+ls - to list files in the directory
+cat readme - to read contents of the readme file
+
+LEVEL 1 PASSWORD
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

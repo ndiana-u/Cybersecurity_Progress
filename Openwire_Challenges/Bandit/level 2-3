@@ -1,0 +1,12 @@
+DESCRIPTION
+The password for the next level
+ is stored in a file called spaces in this filename located in the home directory
+
+SOLUTION
+ls - to list file in directory
+"find . -maxdepth 1 -name 'spaces in this filename'  -exec cat {} \;"
+also worked "cat ./'spaces in this filename'"
+
+
+LEVEL 3 PASSWORD
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx

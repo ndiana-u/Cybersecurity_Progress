@@ -1,0 +1,17 @@
+DESCRIPTION
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+human-readable
+1033 bytes in size
+not executable
+
+STEPS
+ls
+cd inhere
+to list the byte size of all the files in the directory 'du -b -a'
+tried du -h to get the sizes in readable form but they were all kilobytes
+tried du -b to get the sizes in bytes. They were really large.
+when i tried du -b -a. It listed each file and their sizes. I noticed the 'maybehere' were directories that contained other files and the '-a' command listed the size of each of them. I just checked for a file which size was 1033 bytes.
+
+LEVEL 6 PASSWORD
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

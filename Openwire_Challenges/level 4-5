@@ -1,0 +1,12 @@
+DESCRIPTION
+The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
+
+STEPS
+ls to see the list of directory
+cd to change the directory to 'inhere'
+ls -l to list all files
+'cat ./-file02' to read the contents of a file
+
+
+LEVEL 5 PASSWORD
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

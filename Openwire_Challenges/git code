@@ -1,0 +1,12 @@
+git steps 
+
+1. GIT STAGE
+git add .
+
+2. GIT COMMIT
+git commit -m "Your commit message"
+
+3. GIT PUSH
+git push -u origin main
+try 'git push' first
+

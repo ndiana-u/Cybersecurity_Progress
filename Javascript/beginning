@@ -1,0 +1,19 @@
+SET UP
+-Install visual studio
+-Install node.js
+-Create a new folder in your home directory called "javascript"
+-open visual studio 
+-Open the folder and create a file called "index.html"
+-In that file type ! and then press the tab button. The html code structure wil pop up. 
+- Go to extension and download "live server" a lightweight server host for websites. when youre done close and reopen vs code. 
+
+NOTE:
+html all about contents while js is all about behaviour. 
+*variables are used to store data temporarily.
+*primitiveDataTypes: Strings, Number, boolean, null,undefined.
+JavaScript is dynamically typed. While other languages definition of data type is static, 
+js own can be changed at runtime depending on the value passed to that variable.
+*referenceDataType: object, array, function. 
+*Type of array as well as length are dynamic. 
+Function is a set of statements that performs a task or calculate a value. 
+Argument is the actual value of the function. Parameter is the place holder. 

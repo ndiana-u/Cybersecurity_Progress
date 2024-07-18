@@ -6,6 +6,7 @@ ls, cd, cat, file, du, find
 
 STEPS
 some recommended "cat./-" but it didnt work for me
+edit: cat ./'-' worked
 used command "find . -maxdepth 1 -name '-' -exec cat {} \;"
 whats does it do?
 - Searches the current directory for a file named -.

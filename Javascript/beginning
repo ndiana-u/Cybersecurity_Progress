@@ -17,3 +17,19 @@ js own can be changed at runtime depending on the value passed to that variable.
 *Type of array as well as length are dynamic. 
 Function is a set of statements that performs a task or calculate a value. 
 Argument is the actual value of the function. Parameter is the place holder. 
+
+FREE CODE CAMP
+* console is used for debugging. To check if the code written is working properly.
+* ctrl + / to comment multiple lines
+*to save a file ctrl + s
+*to save multiple files ctrl + shift + s
+
+
+to declare a function:
+function functionName(){
+    content
+}
+
+
+*DOM - Document Object Model
+ the type of the document(http) is oject. Simply means how to use javascript to modify a website

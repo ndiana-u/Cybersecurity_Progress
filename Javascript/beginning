@@ -23,6 +23,8 @@ FREE CODE CAMP
 * ctrl + / to comment multiple lines
 *to save a file ctrl + s
 *to save multiple files ctrl + shift + s
+=== used for strict type checking equality
+#message-el = id message-el
 
 
 to declare a function:

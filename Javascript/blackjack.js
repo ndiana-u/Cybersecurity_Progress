@@ -25,17 +25,23 @@
 //     console.log("Not eligible, you have already gotten one")
 // }
 
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards = [firstCard,secondCard]
-let sum = firstCard + secondCard
+let cards = []
+let sum = 0
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardEl = document.getElementById("card-el")
 
+let player = {
+   name: "Sammy",
+   chips: 145
+}
+
+ 
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ":$" + player.chips
 
 function renderGame(){
 
@@ -58,18 +64,69 @@ function renderGame(){
 }
 
 function newCard(){
-   console.log(cards)
-   let card = getRandomCard()
-   sum += card
-   cards.push(card)
-   renderGame()
+    if(isAlive === true && hasBlackJack === false){
+        console.log(cards)
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+     }
+
 }
 
-function startGame(){
+function startGame(){ 
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard,secondCard]
+    sum = firstCard + secondCard
+    isAlive = true
+
+
     renderGame()
 }
 
 function getRandomCard(){
-    return Math.floor(Math.random() * 13) + 1
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber > 10){
+        return 10
+    }else if(randomNumber === 1){
+        return 11
+    }else{
+        return randomNumber
+    }
 }
+
+
+//practice!!!
+// let person = {
+//     name: "Ndiana",
+//     age: 35,
+//     country: "Nigeria",
+
+//     logData: function(){
+//        let detail = person.name + " is " + person.age + " years old and lives in " + person.country
+//        console.log(detail)
+//     }
+
+// }
+
+// person.logData()
+
+let age = Math.floor(Math.random() *100) + 1
+
+if(age < 6){
+    console.log(age + " free")
+}else if(age >= 6 && age<= 17){
+    console.log(age + " child discount")
+}else if( age > 17 && age < 27){
+    console.log(age + " student discount")
+}else if( age > 26 && age < 67){
+    console.log(age + " full price")
+}else{
+    console.log(age + " senior discount")
+}
+
+
+
+
 

@@ -25,8 +25,8 @@
 //     console.log("Not eligible, you have already gotten one")
 // }
 
-let firstCard = 17
-let secondCard = 7
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard,secondCard]
 let sum = firstCard + secondCard
 let hasBlackJack = false
@@ -52,17 +52,17 @@ function renderGame(){
     }
     messageEl.textContent = message
 
-    for(let i =1; i < cards.length; i++){
+    for(let i =0; i < cards.length; i++){
         cardEl.textContent += cards[i] + " "
     }
 }
 
 function newCard(){
-   console.log("Drawing a new card from deck")
-   let card = 3
+   console.log(cards)
+   let card = getRandomCard()
    sum += card
+   cards.push(card)
    renderGame()
-   cards.push(6)
 }
 
 function startGame(){
@@ -70,5 +70,6 @@ function startGame(){
 }
 
 function getRandomCard(){
-    
+    return Math.floor(Math.random() * 13) + 1
 }
+

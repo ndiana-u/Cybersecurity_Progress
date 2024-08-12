@@ -1,0 +1,32 @@
+h1 {
+    background: #141162;
+    color: white;
+    padding: 1px;
+    font-weight: bold;
+}
+
+
+
+body {
+        margin: 0;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        min-width: 400px;
+    }
+    
+    button {
+        background: #16d1d4;
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid #16d1d4;
+        font-weight: bold;
+    
+    }
+
+
+    span {
+        color: #16d1d4;
+        background: white;
+        padding: 1px;
+        font-weight: bold;
+    }

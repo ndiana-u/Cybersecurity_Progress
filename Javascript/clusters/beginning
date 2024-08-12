@@ -25,13 +25,25 @@ FREE CODE CAMP
 *to save multiple files ctrl + shift + s
 === used for strict type checking equality
 #message-el = id message-el
-
-
+//target='_blank' = to load the link in a new tab
 to declare a function:
 function functionName(){
     content
 }
 
+*JSON - Javascript Object Notation
+ it is a way for developers to store and send data. e.g from server to client(the browser)
 
 *DOM - Document Object Model
  the type of the document(http) is oject. Simply means how to use javascript to modify a website
+
+ HOW TO DEPLOY THE EXTENSION
+ -download your code (in settings)
+ -put it in a folder named lead tracker
+ -go to chrome://extensions/
+ -put on the developer mode
+ -click load unpacked extension
+ -choose your folder
+
+ JSON.stringify - array to string
+ JSON.parse - string to array

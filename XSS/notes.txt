@@ -1,0 +1,28 @@
+CROSS SITE SCRIPTING
+Cross-site scripting (also known as XSS) is a web security vulnerability that allows an attacker 
+to compromise the interactions that users have with a vulnerable application.
+
+A Proof of Concept (PoC) payload for Cross-Site Scripting (XSS) is a small piece of code used to demonstrate that a website is vulnerable to XSS. 
+A common payload is a simple alert() function that pops up a message in the user's browser. An alternative PoC payload is print() function. 
+
+TYPES OF XSS
+Reflected XSS: happens when the malicious code comes from the current request, like clicking on a bad link.
+Stored XSS:  happens when the malicious code is saved on the website and affects anyone who visits the page.
+DOM-based XSS: happens when the website’s own JavaScript processes user input in an unsafe way, causing the script to run.
+
+WHAT CAN XSS BE USED FOR?
+An attacker who exploits a cross-site scripting vulnerability is typically able to:
+- Impersonate or masquerade as the victim user.
+- Carry out any action that the user is able to perform.
+- Read any data that the user is able to access.
+- Capture the user's login credentials.
+- Perform virtual defacement of the web site.
+- Inject trojan functionality into the web site.
+
+IMPACT OF XSS VULNERABILITIES
+The actual impact of an XSS attack generally depends on the nature of the application, its functionality and data, and the status 
+of the compromised user. For example:
+- In a brochureware application, where all users are anonymous and all information is public, the impact will often be minimal.
+- In an application holding sensitive data, such as banking transactions, emails, or healthcare records, the impact will usually be serious.
+- If the compromised user has elevated privileges within the application, then the impact will generally be critical, allowing the attacker 
+to take full control of the vulnerable application and compromise all users and their data.

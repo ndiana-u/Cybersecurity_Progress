@@ -1,0 +1,17 @@
+LOGIN 
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+
+DESCRIPTION
+The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+
+COMMANDS YOU MAY NEED: 
+ssh, telnet, nc, openssl, s_client, nmap
+
+STEPS
+* ssh -i /path/to/private_key username@remote_host = specifies a private key to use for authentication.
+ssh -1 sshkey.private bandit14@localhost -p 2220
+Now logged in as bandit14 with private key
+cat /etc/bandit_pass/bandit14 = to get password for level 14
+
+LEVEL 14 PASSWORD
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS

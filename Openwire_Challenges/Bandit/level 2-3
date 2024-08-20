@@ -1,11 +1,14 @@
+# LOGIN
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+
+
 DESCRIPTION
 The password for the next level
  is stored in a file called spaces in this filename located in the home directory
 
 SOLUTION
 ls - to list file in directory
-"find . -maxdepth 1 -name 'spaces in this filename'  -exec cat {} \;"
-also worked "cat ./'spaces in this filename'"
+METHOD: cat ./'spaces in this filename'
 
 
 LEVEL 3 PASSWORD

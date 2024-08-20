@@ -1,16 +1,16 @@
-LOGIN 
+# LOGIN 
 ssh bandit12@bandit.labs.overthewire.org -p 2220
 
 
-DESCRIPTION
+# DESCRIPTION
 The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
-COMMANDS NEEDED MAYBE:
+# COMMANDS NEEDED MAYBE:
+grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 
-
-STEPS
-- create a temporary directory using "mktemp --d"
-- change directrory to that temp directroty using cd command: cd /tmp/tmp.ROOoXAjUur
+# STEPS
+- create a temporary directory using "mktemp -d"
+- change directrory to that temp directory using cd command: cd /tmp/tmp.ROOoXAjUur
 - copy the data.txt file into the directory using cp: "cp ~/data.txt ."
 - change the name of the file since it isnt a text file to another name using mv command: mv data.txt data
 - use xxd to convert the data into its binary equivalent: xxd -r data > binary
@@ -32,5 +32,5 @@ tar -xf binary
 - t looks like the password file has recursively been compressed using “tar”, “gzip” and “bzip2”. We keep repeating the above steps tell we get the password file.
 
 
-LEVEL 13 PASSWORD
+# LEVEL 13 PASSWORD
  FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn

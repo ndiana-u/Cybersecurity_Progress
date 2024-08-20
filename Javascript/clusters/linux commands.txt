@@ -1,0 +1,56 @@
+SHELL: A program that takes input/ instructions from the user and gives it to the operating system to perform.
+TERMINAL: A tool used to pass your shell commands.
+
+
+pwd - present working directory
+cd - change directory
+clear - to clear terminal.
+home = ~
+root directory = /
+man command = list details about command
+
+
+
+LS
+ls - list all files and directories.
+ls -a = lists hidden files too.
+ls -l = lists file in long format.
+ls -lS = list files in long format by size(biggest to smallest).
+ls -lS > out.txt = outputs  result into that file. 
+ls Documents/*.html = list all the html files in the documents folder.
+man ls = to list all details about ls
+
+CD 
+cd - takes you to home directory.
+cd /usr/bin = can change directory using absolute path
+cd bin/ = change directory using relative path
+to enter a folder with space in its name - My Books
+1. cd My\ Books
+2. cd "My Books"
+3. cd 'My Books'
+
+CAT 
+used to
+- display text file.
+- combine copies of text files
+-create new text files
+
+cat = echo text files
+ctrl + D = leave cat command
+
+cat list.txt = display content of list.txt
+cat -n list.txt = add line number to the contents of the file.
+cat -s list.txt = squeeze all blank lines to one file
+cat > test.txt = create a new file then type input into it.
+cat >> test.txt = append new input to existing content in file.
+
+MKDIR & RMDIR
+mkdir = make directory
+mkdir -p a/b/c/d/e = to create multiple directories
+rmdir = remove directory
+rmdir -p = remove parent directory
+rmdir doesnt delete directories that contains files
+rm -r = to remove directories and their files
+
+CP 
+cp options source destination

@@ -1,21 +1,19 @@
-LOGIN 
+# LOGIN 
 ssh bandit10@bandit.labs.overthewire.org -p 2220
 
-DESCRIPTION
+# DESCRIPTION
 The password for the next level is stored in the file data.txt, which contains base64 encoded data
 
-COMMANDS NEEDED MAYBE:
+# COMMANDS NEEDED MAYBE:
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-STEPS
-cat data.txt
-I noticed that the contents was base64 encoded
-command: base64 -d data.txt
-to decode the file 
+# STEPS
+cat data.txt = to read the contents of the file.
+base64 -d data.txt = I noticed that the contents was base64 encoded this command to decode the file.
 
-LEVEL 11 PASSWORD
+# LEVEL 11 PASSWORD
 dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 
 
-BASE64 COMMAND
+# BASE64 COMMAND
 The base64 command in Linux allows you to encode and decode data from files or strings. Use base64 -d to decode encoded data back to its original form.

@@ -1,3 +1,7 @@
+# LOGIN
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+
+
 DESCRIPTION
 The password for the next level is stored in a file called - located in the home directory
 
@@ -6,14 +10,9 @@ ls, cd, cat, file, du, find
 
 STEPS
 some recommended "cat./-" but it didnt work for me
-edit: cat ./'-' worked
-used command "find . -maxdepth 1 -name '-' -exec cat {} \;"
-whats does it do?
-- Searches the current directory for a file named -.
-- Limits the search to one level deep (doesn't search subdirectories).
-- Executes the cat command on the found file, effectively displaying its contents.
+METHOD: cat ./'-' worked
 
- find
+
 LEVEL 2 PASSWORD
 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
 

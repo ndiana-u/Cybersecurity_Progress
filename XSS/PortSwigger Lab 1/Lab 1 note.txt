@@ -1,0 +1,17 @@
+
+LAB NAME: REFLECTED XSS INTO HTML CONTEXT WITH NOTHING ENCODED 
+
+DESCRIPTION
+This lab contains a simple reflected cross-site scripting vulnerability in the search functionality.
+To solve the lab, perform a cross-site scripting attack that calls the alert function.
+
+DIFFICULTY LEVEL: Apprentice
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded
+
+STEPS I USED TO SOLVE THIS LAB
+- I ran the lab in burp browser so I could intercept the request with Burp proxy.
+- I searched for a random word 'food' in the search bar.
+- I intercepted the request.
+- Changed the SEARCH input to '<SCRIPT>alert('youve-been-xss!')</SCRIPT>'
+-An alert box popped up in the lab's webpage showing the alert message.

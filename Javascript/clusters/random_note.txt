@@ -1,0 +1,2 @@
+Mitre’s Common Vulnerabilities and Exposures (CVE) project, a dictionary of publicly known vulnerabilities 
+in commercial and open source software products.

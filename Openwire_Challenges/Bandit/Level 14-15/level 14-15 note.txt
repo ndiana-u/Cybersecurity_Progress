@@ -9,7 +9,7 @@ ssh, telnet, nc, openssl, s_client, nmap
 
 # STEPS
 format: echo "Your text here" | nc localhost port_number
-echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
+command: echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
 
 # LEVEL 15 PASSWORD
 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo

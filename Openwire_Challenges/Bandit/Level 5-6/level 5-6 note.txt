@@ -13,8 +13,9 @@ ls , cd , cat , file , du , find
 # STEPS
 ls = to list the files or directories.
 cd inhere = change directory to inhere
-to list the byte size of all the files in the directory 'du -b -a'
+du -b -a = to list the byte size of all the files in the directory 
 find -size 1033c = to get the file with size 1033
+cat /.maybehere07/.file2 = To view the content of file2.
 
 # STRUGGLES
 I tried du -h to get the sizes in readable form but they were all kilobytes

@@ -11,6 +11,8 @@ COMMANDS YOU MAY NEED:
 ssh, telnet, nc, ncat, socat, openssl, s_client, nmap, netstat, ss
 
 STEPS
-
+1. Scan for open ports with command: nmap -p 31000-32000 localhost
+2. Check if each open port uses ssl/tls with command: openssl s_client -connect localhost:port
+There are 5 open ports 31046, *n31518, 31691, 31790, 31960. Try each port number
 
 LEVEL 17 PASSWORD

@@ -9,7 +9,7 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
 # STEPS
 cat data.txt = to read the contents of the file.
-base64 -d data.txt = I noticed that the contents was base64 encoded this command to decode the file.
+base64 -d data.txt = Since the content is base64 encoded I used this command to decode the file.
 
 # LEVEL 11 PASSWORD
 dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

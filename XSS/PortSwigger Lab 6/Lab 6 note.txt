@@ -1,0 +1,18 @@
+LAB NAME: DOM XSS in jQuery anchor href attribute sink using location.search source
+
+DESCRIPTION
+This lab contains a DOM-based cross-site scripting vulnerability in the submit feedback page. It uses the jQuery library's $ selector
+ function to find an anchor element, and changes its href attribute using data from location.search.
+To solve this lab, make the "back" link alert document.cookie.
+
+DIFFICULTY LEVEL: Apprentice.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-jquery-href-attribute-sink 
+
+STEPS I USED TO SOLVE THIS LAB
+-opened lab in browser
+- I right clicked on the page , clicked on "Inspect' to check the elements.
+-I found that if i change the return path in the url to something else it would reflect in the href attribute of the 'a' tag of the back link.
+- I changed the return path to: returnPath=javascript:alert(document.cookie)
+- Then submitted a random feedback and clicked 'back'
+- An alert box popped up.

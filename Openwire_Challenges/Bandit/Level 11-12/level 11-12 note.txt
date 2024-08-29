@@ -12,7 +12,7 @@ command: tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
 
 # EXPLANATION
 'tr 'A-Za-z' 'N-ZA-Mn-za-m': This command tells tr to translate all uppercase and lowercase letters from their ROT13-encoded(rotated by 13 postions) counterparts back to their original positions.
-< filename.txt: This part of the command takes the contents of filename.txt as input.ss
+< filename.txt: This part of the command takes the contents of filename.txt as input.
 
 # LEVEL 12 PASSWORD
 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4

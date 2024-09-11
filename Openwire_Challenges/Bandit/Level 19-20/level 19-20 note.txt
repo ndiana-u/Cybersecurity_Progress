@@ -3,12 +3,66 @@ ssh bandit19@bandit.labs.overthewire.org -p 2220
 
 
 DESCRIPTION
-To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it.
+The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
 
 
 COMMANDS YOU MAY NEED:
 
 STEPS
+cd ~ : change to the homedirectory
+ls -l : to get the list of files or folders in long format
+if the file has a permission -rwsr. The s there indicates that the setuid bit is enabled.
+./binary_name: to execute the binary
+It printed a usage instruction which was to run a command as another user.
+./bandit20-do cat /etc/bandit_pass/bandit20 : to get the password follow the instruction.
 
 
 LEVEL 20 PASSWORD
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+
+
+
+SETUID 
+The setuid (set user ID upon execution) bit is a special permission in Linux/Unix that allows a program to run with the privileges of the file's owner,
+regardless of the user executing it. This is often used to grant ordinary users the ability to execute commands or scripts with elevated privileges.
+
+The **setuid** binary is used to grant temporary elevated privileges to a program, allowing a non-privileged user to execute specific tasks that require higher privileges (e.g., root) without granting full administrative access. It's a security mechanism in Unix-like systems that balances functionality and privilege management. Here’s why setuid binaries are used:
+
+### Reasons for Using Setuid Binaries:
+
+1. **Grant Elevated Privileges for Specific Tasks**:
+   - Some tasks require higher privileges (like accessing restricted files, changing system settings, or binding to privileged ports). A **setuid** binary allows users to perform these tasks without giving them full root access.
+   - Example: The `passwd` command is a setuid binary. It allows normal users to change their password, which requires writing to system files like `/etc/passwd` that are owned by root. Users can run `passwd` without having root access, and the binary temporarily elevates privileges to modify the necessary files.
+
+2. **Access to Restricted System Resources**:
+   - Certain system resources, like files owned by root or specific system configurations, are not accessible to normal users. A setuid binary provides access to these resources for specific, controlled actions.
+   - Example: The `ping` command often runs with setuid to allow users to send ICMP echo requests (requiring privileged access) without granting them full network control.
+
+3. **Perform System-Level Actions**:
+   - Operations like network configuration, process management, or hardware management might require system-level privileges. Setuid binaries allow users to perform these without directly accessing the system’s administrative credentials.
+   - Example: The `sudo` command itself is a setuid binary. It allows users to execute commands as root or another user based on controlled permissions defined in `/etc/sudoers`.
+
+4. **Security and Restriction**:
+   - Setuid binaries provide controlled escalation of privileges, ensuring that only specific programs (and by extension, specific actions) can be executed with elevated rights. This limits potential abuse of root privileges.
+   - Rather than granting users full access to root or administrative accounts, setuid binaries offer a more secure, targeted way of giving users the access they need to perform certain tasks.
+
+### Example Use Cases for Setuid Binaries:
+
+- **Changing Passwords**: The `passwd` command is a classic example of setuid use. Regular users can change their passwords, but the command needs root privileges to write the new password to system files like `/etc/shadow`.
+- **Network Operations**: Some network utilities need to bind to ports below 1024 (privileged ports). A setuid binary like `ping` or `traceroute` can allow a normal user to perform these tasks.
+- **File Ownership Management**: Commands like `chown` require elevated privileges because changing file ownership is a root-level operation. These binaries can be run as setuid so users can execute them without being root.
+- **Mounting and Unmounting Filesystems**: Some systems allow users to mount or unmount filesystems with commands like `mount` and `umount`, which are often setuid binaries to let users perform these actions while still maintaining control over who can mount filesystems.
+
+### Why Not Always Use Setuid Binaries?
+
+While setuid binaries can be useful, they also pose **security risks** if not handled properly:
+- **Exploits and Vulnerabilities**: Setuid binaries are a common target for attackers. If a setuid binary is vulnerable to exploits (like buffer overflows), it can be abused to gain unauthorized root access.
+- **Privilege Escalation**: If an attacker finds a way to manipulate the behavior of a setuid binary, they can use it to escalate their privileges and gain full control of the system.
+
+### Security Concerns:
+1. **Least Privilege Violation**: If a setuid binary is not carefully designed, it can expose higher-level system capabilities to lower-privileged users.
+2. **Vulnerabilities**: If a setuid binary has a bug (e.g., a buffer overflow), it can be exploited to run arbitrary code with elevated privileges.
+
+### Summary:
+Setuid binaries are used to perform specific tasks requiring elevated privileges without granting full root access. They’re powerful for system administration, user management, and network operations, but they need to be carefully designed and audited due to their potential for security vulnerabilities.

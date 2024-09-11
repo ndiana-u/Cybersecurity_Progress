@@ -1,0 +1,18 @@
+LAB NAME: DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
+
+DESCRIPTION
+This lab contains a DOM-based cross-site scripting vulnerability in a AngularJS expression within the search functionality.
+AngularJS is a popular JavaScript library, which scans the contents of HTML nodes containing the ng-app attribute (also known as an
+AngularJS directive). When a directive is added to the HTML code, you can execute JavaScript expressions within double curly braces. This 
+technique is useful when angle brackets are being encoded.
+To solve this lab, perform a cross-site scripting attack that executes an AngularJS expression and calls the alert function.
+
+DIFFICULTY LEVEL: Practitioner.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-angularjs-expression
+
+STEPS I USED TO SOLVE THIS LAB
+- Searched for a random string 'blah' in the search box of the lab.
+- right-clicked and went to 'inspect' to see how the string is handled.
+- I noticed it was handled by ng-app directive.
+- Inputted the payload containing an angular JS expression in the search box: {{constructor.constructor('alert(1)')()}}

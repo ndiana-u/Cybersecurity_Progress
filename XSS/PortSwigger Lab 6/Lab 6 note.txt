@@ -10,9 +10,9 @@ DIFFICULTY LEVEL: Apprentice.
 LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-jquery-href-attribute-sink 
 
 STEPS I USED TO SOLVE THIS LAB
--opened lab in browser
+- Opened lab in browser
 - I right clicked on the page , clicked on "Inspect' to check the elements.
--I found that if i change the return path in the url to something else it would reflect in the href attribute of the 'a' tag of the back link.
+- I found that if I change the return-path in the url to something else it would reflect in the href attribute of the 'a' tag of the back link.
 - I changed the return path to: returnPath=javascript:alert(document.cookie)
-- Then submitted a random feedback and clicked 'back'
+- Then submitted a random feedback and clicked 'back'.
 - An alert box popped up.

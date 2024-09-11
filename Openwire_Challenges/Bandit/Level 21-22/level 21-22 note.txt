@@ -1,0 +1,30 @@
+LOGIN
+ssh bandit21@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration 
+and see what command is being executed.
+COMMANDS YOU MAY NEED:
+cron, crontab, crontab(5) (use “man 5 crontab” to access this)
+
+STEPS
+1. cd /etc/cron.d
+2. ls -l : to list all files/directories
+3. cat cronjob_bandit22
+RESULT:
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+The cron job for Bandit level 22 is scheduled to run the script /usr/bin/cronjob_bandit22.sh every minute. 
+
+4. cat /usr/bin/cronjob_bandit22.sh
+RESULT:
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv 
+ :This command changes the permissions of the file and makes it readable to anyone.
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv 
+ :This command copies the contents of the password file into the file /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv.
+
+5. cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv :to get the password
+
+LEVEL 22 PASSWORD
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q

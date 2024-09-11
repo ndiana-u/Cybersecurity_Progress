@@ -1,0 +1,50 @@
+LAB NAME: Reflected DOM XSS
+
+DESCRIPTION
+This lab demonstrates a reflected DOM vulnerability. Reflected DOM vulnerabilities occur when the server-side application processes data from a 
+request and echoes the data in the response. A script on the page then processes the reflected data in an unsafe way, ultimately writing it to a
+dangerous sink.
+
+To solve this lab, create an injection that calls the alert() function.
+
+DIFFICULTY LEVEL: Practitioner.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-dom-xss-reflected
+
+STEPS I USED TO SOLVE THIS LAB
+- searched for a random string.
+- Intercepted the request using burp proxy. Then forwarded it.
+-On the Intercept tab, notice that the string is reflected in a JSON response called search-results.
+- I went to burp target where I found the site map. i streamlined my search to show just js files.
+- I looked for the url of the lab, opened the searchResults.js file and noticed that the JSON response is used with an eval() function call.
+- I experimented with different search strings, and found that the JSON response is escaping quotation marks. However, backslash is not being escaped.
+- I searched for this: \"-alert(1)}//
+- The alert box popped up.
+
+
+PAYLOAD BREAKDOWN \"-alert(1)}//
+\" :Breaking Out of the String Context
+- : To separate the expressions before the alert() function is called
+alert(1) : function to be executed.
+} : Closing the Existing Code Block
+// : Commenting Out the Rest
+
+
+
+THE EVAL FUNCTION USED IN THE searchresult.js
+{
+ eval('var searchResultsObj = ' + this.responseText);
+ displaySearchResults(searchResultsObj);
+}
+EXPLANATION
+* this.responseText: This likely contains a JSON or JavaScript object as a string, which is expected to be safe and trusted.
+* eval(): Executes the content of this.responseText. If it's a valid JavaScript object, it assigns it to searchResultsObj.
+* displaySearchResults(): A function that uses searchResultsObj to display the results.
+
+WHY IS THIS A SECURITY ISSUE?
+Using eval() can be dangerous if the data passed to it is user-controlled or not properly sanitized. Attackers can inject malicious code inside
+this.responseText, which would be executed by eval().
+
+HOW TO MAKE IT SAFER
+You should avoid using eval() and instead use JSON.parse() if you expect this.responseText to be a JSON string. it would safely parse 
+this.responseText as a JSON string and prevent the execution of arbitrary code.

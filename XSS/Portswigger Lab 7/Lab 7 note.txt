@@ -1,0 +1,25 @@
+
+LAB NAME: DOM XSS in jQuery selector sink using a hashchange event
+
+DESCRIPTION
+This lab contains a DOM-based cross-site scripting vulnerability on the home page. It uses jQuery's $() selector function to auto-scroll 
+to a given post, whose title is passed via the location.hash property.
+To solve the lab, deliver an exploit to the victim that calls the print() function in their browser.
+
+DIFFICULTY LEVEL: Apprentice.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-jquery-selector-hash-change-event 
+
+STEPS I USED TO SOLVE THIS LAB
+- Opened lab in browser
+- I right clicked on the page , clicked on "Inspect' to check the elements.
+- I scrolled down to the script element to check it content.
+- The jQuery script listens for changes to the URL hash and scrolls the page to a specific blog post based on the hash value.
+- I went to the exploit server provided on the lab home page.
+- I added the payload below to the body of the Exploit server page.
+payload: <iframe src="https://0ae700950361f1e283767eca00eb009d.web-security-academy.net//#" onload="this.src+='<img src=x onerror=print()>'"></iframe>
+- I stored it and clicked on 'deliver to victim'. Once the victim visits the exploit page, it would trigger the iframe to load the target site.
+
+PAYLOAD EXPLANATION
+1. The iframe is an HTML element used to embed another document within the current page.
+2. The code attempts to append an image element with an invalid source to the src attribute. On error, the print() function is called.

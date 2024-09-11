@@ -3,33 +3,38 @@ ssh bandit12@bandit.labs.overthewire.org -p 2220
 
 
 # DESCRIPTION
-The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
+The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level 
+it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use 
+the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
 # COMMANDS NEEDED MAYBE:
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 
 # STEPS
-- create a temporary directory using "mktemp -d"
-- change directrory to that temp directory using cd command: cd /tmp/tmp.ROOoXAjUur
-- copy the data.txt file into the directory using cp: "cp ~/data.txt ."
-- change the name of the file since it isnt a text file to another name using mv command: mv data.txt data
-- use xxd to convert the data into its binary equivalent: xxd -r data > binary
-- use file command to see what type of data is stored:
-file binary
-- We can see that the file was compressed using qzip so we can decompress the data using the gunzip command. When trying to decompress an gzip file it is important that the file has the correct extension.
- so we first change the extension to gz using:
- mv binary binary.gz then gunzip binary.gz
- - ls to see the files in directory
- - file binary
-- We see that the data is compressed using bzip2. For decompressing an bzip2 file we can use the bunzip2 command: bunzip2 binary.
+- mktemp -d: create a temporary directory
+- cd /tmp/tmp.ROOoXAjUur: change directory to that temp directory using cd command
+- cp ~/data.txt . : copy the data.txt file into the directory
+- mv data.txt data : change the name of the file since it isn't a text file.
+- xxd -r data > binary: converts the data file into its binary equivalent
+- file binary: to check type of data stored
+- The file was compressed using gzip. When trying to decompress a gzip file it is important that the file has the correct extension.
+- mv binary binary.gz: to change the extension to gz
+- gunzip binary.gz: to decompress the data 
+- ls: to see the files in directory
+- file binary: To check file type. It is a bzip2 file
+- bunzip2 binary: We see that the data is compressed using bzip2. For decompressing a bzip2 file.
 - ls
--file binary.out
-- We see that its once more gzip compressed file we use the same procedure to decompress the file
--ls
+- file binary.out
+- It is once more a gzip compressed file. We use the previous procedure to decompress it.
+- ls
 - file binary
-- We see that the data is saved in an tar archive. For extracting an tar file we use the tar command:
-tar -xf binary
-- t looks like the password file has recursively been compressed using “tar”, “gzip” and “bzip2”. We keep repeating the above steps tell we get the password file.
+- tar -xf binary: The data is saved in a tar archive file so we use this command to extract it..
+- The password file has recursively been compressed using “tar”, “gzip” and “bzip2”. We keep repeating the following steps
+tell we get the password file.
+1. ls
+2. file 'name of file'
+3. decompress file using appropriate command
+- cat data8: To read the content of the original password file, data8.
 
 
 # LEVEL 13 PASSWORD

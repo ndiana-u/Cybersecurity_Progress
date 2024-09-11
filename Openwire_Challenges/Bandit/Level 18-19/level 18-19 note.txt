@@ -9,6 +9,9 @@ COMMANDS YOU MAY NEED:
 ssh, ls, cat
 
 STEPS
-
+login with: ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat ~/readme"
+When you run this command, SSH will log into the server, immediately execute cat ~/readme, and output the contents of the readme 
+file to your terminal. Since the .bashrc issue causes a logout upon login, this method bypasses the interactive shell entirely
 
 LEVEL 19 PASSWORD
+cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8

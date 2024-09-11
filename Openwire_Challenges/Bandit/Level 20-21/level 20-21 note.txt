@@ -1,0 +1,49 @@
+LOGIN
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+
+DESCRIPTION
+There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a 
+commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). 
+If the password is correct, it will transmit the password for the next level (bandit21).
+NOTE: Try connecting to your own network daemon to see if it works as you think
+
+COMMANDS YOU MAY NEED:
+ssh, nc, cat, bash, screen, tmux, Unix ‘job control’ (bg, fg, jobs, &, CTRL-Z, …)
+
+STEPS
+A
+1. Open a new terminal, connect using SSH to level 20,then: 
+2. nc -lvp 12334 -s 127.0.0.1 :to set up a server.
+Your server is listening for incoming connections on port 12334.
+
+B
+In another terminal window (while your network daemon is running), after running SSH:
+1. ls -l : to find the setuid binary file and its name. This lists the files/folders there.
+2. ./suconnect 12334: to execute the setuid binary with the port number as an argument.
+A connection has been established between setuid binary and the server.
+
+C
+In the first terminal,
+-type the level 20 password and send.
+-The level 21 password would be sent back by the client(setuid binary).
+
+*You'll notice that in the client terminal, a message popped up verifying that the password sent by the server matches.
+
+
+LEVEL 21 PASSWORD
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+
+NETWORK DAEMON
+A network daemon is a background service that listens on a port for incoming connections. The challenge is pushing you to think about the 
+interaction between a client (the setuid binary) and the server (your listener, such as netcat).
+By running your own listener (a simple "network daemon"), you can observe the behavior of the setuid binary as it connects to the specified 
+port and transmits/receives data.
+
+
+COMMAND MEANING  nc -lvp 12334 -s 127.0.0.1 
+nc: to set up network daemon and a simple server. 
+-l: tells nc to listen for an incoming connection.
+-v: enables verbose output.
+-p: specifies the port number to listen on.
+12334: a random non-privileged port number (above 1024) to avoid needing root permissions.
+-s 127.0.0.1: makes sure it listens only on localhost (127.0.0.1), which ensures only local connections are allowed.

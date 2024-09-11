@@ -1,0 +1,35 @@
+LOGIN
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration 
+and see what command is being executed.
+NOTE: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. 
+If you are having problems understanding what it does, try executing it to see the debug information it prints.
+
+COMMANDS YOU MAY NEED:
+cron, crontab, crontab(5) (use “man 5 crontab” to access this)
+
+STEPS
+1. cd /etc/cron.d
+2. ls -l : to list all files/directories
+3. cat cronjob_bandit23
+4. cat /usr/bin/cronjob_bandit23.sh: to see the content of the script.
+5.  echo I am user bandit23 | md5sum | cut -d '' -f 1 : this is the line that 'mytarget' runs to get the name of the temporary file.
+I replaced the '$myname' in the command to bandit23 which is the level password, I'm looking for.
+6.  cat /tmp/8ca319486bfbbc3663ea0fbe81326349 : to get the content of the file which is the password for level 23.
+
+LEVEL 23 PASSWORD
+0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+
+COMMAND EXPLANATION(echo I am user bandit23 | md5sum | cut -d '' -f 1)
+1. `echo I am user bandit23`
+This command outputs the string `I am user bandit23` to the standard output (terminal).
+2. `| md5sum`
+The `md5sum` command calculates the MD5 hash of the input text. In this case, it takes the string `"I am user bandit23"` and converts it into
+a unique 32-character hexadecimal hash. MD5 is a cryptographic hash function used for creating checksums.
+3. `| cut -d ' ' -f 1`
+The `cut` command is used to split the output into fields based on a delimiter. The `-d ' '` part tells `cut` to use a space as the delimiter,
+and `-f 1` specifies that only the first field (which is the hash in this case) should be printed.
+

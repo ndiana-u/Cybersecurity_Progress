@@ -11,6 +11,8 @@ COMMANDS YOU MAY NEED:
 cat, grep, ls, diff
 
 STEPS
-
+diff passwords.old passwords.new :list the lines that are different between the files.
+The second line from the passwords.new file is the password we need.
 
 LEVEL 18 PASSWORD
+ x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO

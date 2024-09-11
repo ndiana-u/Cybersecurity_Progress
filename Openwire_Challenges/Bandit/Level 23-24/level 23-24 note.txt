@@ -1,0 +1,40 @@
+LOGIN
+ssh bandit23@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration 
+and see what command is being executed.
+NOTE: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you
+beat this level!
+NOTE 2: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+
+COMMANDS YOU MAY NEED:
+chmod, cron, crontab, crontab(5) (use “man 5 crontab” to access this)
+
+STEPS
+1. cd /etc/cron.d
+2. ls -l : to list all files/directories
+3. cat cronjob_bandit23
+4. cat /usr/bin/cronjob_bandit23.sh: to see the content of the script.
+5. cd ~ : Change directory back to home directory.
+6. mktemp -d :to create a temporary directory
+7. touch password :create a new file called password where the password would be stored.
+8. nano myfirstscript.sh
+9. Type these in the script file
+ #!/bin/bash
+ cat /etc/bandit_pass/bandit24 > /tmp/tmp.7XDAdkIYh5/password
+10. Save file and exit text editor.
+11. chmod 777 -R /tmp/tmp.7XDAdkIYh5: change permission to give any user read,write and execute privilege to the folder and any file/folder 
+under it.
+12. cp myfirstscript.sh /var/spool/bandit24/foo : copy the script file to the location where the cron job scheduler script will execute it.
+
+LEVEL 24 PASSWORD
+gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
+
+
+
+
+
+
+

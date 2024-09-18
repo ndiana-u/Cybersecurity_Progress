@@ -1,12 +1,13 @@
-LAB NAME: Stored DOM XSS
+LAB NAME: Reflected XSS into attribute with angle brackets HTML-encoded
 
 DESCRIPTION
-This lab demonstrates a stored DOM vulnerability in the blog comment functionality. To solve this lab, exploit this vulnerability to call 
-the alert() function.
+This lab contains a reflected cross-site scripting vulnerability in the search blog functionality where angle brackets are HTML-encoded. To solve this lab, perform a cross-site scripting attack that injects an attribute and calls the alert function.
 
-DIFFICULTY LEVEL: Practitioner.
+DIFFICULTY LEVEL: Apprentice.
 
-LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-dom-xss-stored
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-attribute-angle-brackets-html-encoded
 
 STEPS I USED TO SOLVE THIS LAB
-<><img src='x' onerror="alert('xss')"> inputted into the search bashrc
+I intercepted a searxh result and sent it to Burp Repeater.
+The result was enclosed in double quotes. I used the payload enclosed in a double quotes to call the alert function. 
+Payload I searched for: " autofocus onfocus=alert(document.domain) x="

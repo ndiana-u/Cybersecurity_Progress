@@ -1,0 +1,20 @@
+LOGIN
+ssh bandit26@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+Good job getting a shell! Now hurry and grab the password for bandit27!
+
+COMMANDS YOU MAY NEED:
+ls
+
+STEPS
+1. ls -l : to list all files and directories.
+I noticed that the setuid binary bit 's' was set for a file 'bandit27-do'
+2. ./bandit27-do cat /etc/bandit_pass/bandit27 : to execute the file and get the password alongside.
+
+LEVEL 27 PASSWORD
+upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
+
+
+

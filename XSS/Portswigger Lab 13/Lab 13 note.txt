@@ -1,12 +1,15 @@
-LAB NAME: Stored DOM XSS
+LAB NAME: Reflected XSS with some SVG markup allowed
 
 DESCRIPTION
-This lab demonstrates a stored DOM vulnerability in the blog comment functionality. To solve this lab, exploit this vulnerability to call 
-the alert() function.
+This lab has a simple reflected XSS vulnerability. The site is blocking common tags but misses some SVG tags and events.
+
+To solve the lab, perform a cross-site scripting attack that calls the alert() function.
 
 DIFFICULTY LEVEL: Practitioner.
 
-LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-dom-xss-stored
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-some-svg-markup-allowed
 
 STEPS I USED TO SOLVE THIS LAB
-<><img src='x' onerror="alert('xss')"> inputted into the search bashrc
+Burp Intruder did its thing with the payloads
+I combined svg, animatetransform and onbegin in the payload to call the alert function
+searched got: "><svg><animatetransform onbegin=alert(1)>

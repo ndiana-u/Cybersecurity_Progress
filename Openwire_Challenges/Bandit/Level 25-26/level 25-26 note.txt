@@ -1,0 +1,40 @@
+LOGIN
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what 
+it is, how it works and how to break out of it.
+NOTE: if you’re a Windows user and typically use Powershell to ssh into bandit: Powershell is known to cause issues with the intended solution
+to this level. You should use command prompt instead.
+
+COMMANDS YOU MAY NEED: 
+ssh, cat, more, vi, ls, id, pwd
+
+STEPS
+ls -l : To list files/directories
+cat bandit26.sshkey : To see the contents of the file. It contained a RSA private key for bandit26 level.
+ssh -i bandit26.sshkey bandit26@localhost -p 2220: to connect to bandit26 level. It connected but closed immediately. I needed to check the 
+type of shell script running.
+cat /etc/password : to see the shell script used for various levels.
+look for bandit26 own which is '/usr/bin/showtext'
+cat /usr/bin/showtext: to see how the script executes.
+The 'more' command was used to execute a text file in the script. When executed on a terminal with a large/full screen and the file content
+is short,'more' automatically exit and return you to the shell prompt without waiting for additional input because there's no need for 
+scrolling. That was what happened when I tried logging in to bandit26 earlier. 
+To solve this I reduced my terminal size to be very small so the amount of text content which can be displayed would be small. This allowed 
+the 'more' command to still be running.
+ssh -i bandit26.sshkey bandit26@localhost -p 2220 : to log in to bandit26.
+Pressed 'v' key to open the vim text editor.
+:set shell=/bin/bash: Once this command is entered i was put in insert mode so I pressed “Esc” to exit insert mode and enter the next command
+:shell: to open a bash shell for bandit26.
+cat /etc/bandit_pass/bandit26 : to get the password.
+
+LEVEL 26 PASSWORD
+s0773xxkk0MXfdqOfPRVr9L3jJBUOgCZ
+
+MORE COMMAND
+The more command in Unix-like operating systems is used to view the contents of a text file one screen at a time. It allows you to scroll 
+through the file by pressing the spacebar to move to the next screen or the Enter key to move one line at a time. This is useful for reading 
+long files without opening them in an editor
+

@@ -10,8 +10,6 @@ DIFFICULTY LEVEL: Practitioner.
 LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-html-context-with-most-tags-and-attributes-blocked
 
 STEPS I USED TO SOLVE THIS LAB
-
- Solution
 - Inject a standard XSS vector, such as:
 <img src=1 onerror=print()>
 - Observe that this gets blocked. In the next few steps, we'll use use Burp Intruder to test which tags and attributes are being blocked.
@@ -41,4 +39,5 @@ EXPLANATION OF PAYLOAD
 - The onload event is executed when the <iframe> finishes loading.
 - The this.style.width='100px' part adjusts the width of the <iframe> to 100px upon loading.
 
-
+STRUGGLES
+This lab was hard for me to understand so I had to refer to the solution.

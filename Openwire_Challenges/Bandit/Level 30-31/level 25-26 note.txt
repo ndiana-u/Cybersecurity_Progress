@@ -1,0 +1,10 @@
+LOGIN
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+
+
+STEPS
+
+LEVEL 26 PASSWORD

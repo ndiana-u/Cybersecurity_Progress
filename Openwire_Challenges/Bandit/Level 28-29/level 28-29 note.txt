@@ -1,0 +1,30 @@
+LOGIN
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo via the port 2220. The password for the user bandit28-git 
+is the same as for the user bandit28.
+Clone the repository and find the password for the next level
+
+COMMANDS YOU MAY NEED: 
+git
+
+STEPS
+1. log in to bandit27
+2. mktemp -d : to create a temporary directory
+3. cd /tmp/'tmp-directory': to change to that temporary directory
+4. git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo : to clone the repository
+5. Input the password which is the same as bandit27 password
+6. cd repo : change to the repo directory
+7. ls -l : to list files/directories
+8. cat README.md : to read the content of the file.
+9. The password was not provided. 
+10. git log: to examine commit history.
+11. One of the commits message was 'add missing data'. I guessed it had to be the password.
+12. git show <commit-hash> : to see the changes made during that particular commit.
+The password was there.
+
+LEVEL 29 PASSWORD
+4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
+

@@ -1,0 +1,22 @@
+LOGIN
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo via the port 2220. The password for the user bandit29-git 
+is the same as for the user bandit29.
+Clone the repository and find the password for the next level.
+
+COMMANDS YOU MAY NEED:
+git
+
+STEPS
+
+git branch -a
+git checkout remotes/origin/dev
+ls -la
+cat README.md
+
+LEVEL 30 PASSWORD
+qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+

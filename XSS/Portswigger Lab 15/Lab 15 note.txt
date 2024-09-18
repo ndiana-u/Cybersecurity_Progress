@@ -1,12 +1,15 @@
-LAB NAME: Stored DOM XSS
+LAB NAME: Stored XSS into anchor href attribute with double quotes HTML-encoded 
 
 DESCRIPTION
-This lab demonstrates a stored DOM vulnerability in the blog comment functionality. To solve this lab, exploit this vulnerability to call 
-the alert() function.
+This lab contains a stored cross-site scripting vulnerability in the comment functionality. To solve this lab, submit a comment that calls the alert function when the comment author name is clicked.
 
-DIFFICULTY LEVEL: Practitioner.
+DIFFICULTY LEVEL:Apprentice.
 
-LAB LINK: https://portswigger.net/web-security/cross-site-scripting/dom-based/lab-dom-xss-stored
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-href-attribute-double-quotes-html-encoded
 
 STEPS I USED TO SOLVE THIS LAB
-<><img src='x' onerror="alert('xss')"> inputted into the search bashrc
+I posted a comment and i noticed the username was clickable.
+once i clicked on it, I was redirected to the website link I filled with that comment.
+- I inspected the code of the webpage by rightclicking on it and then on 'inspect'.
+- I noticed that the website link was put in href attribute and enclosed with double quotes.
+I posted a new comment with this payload in the website section: javascript:alert(document.domain). Once i was doen I clicked on the username and it was executed.

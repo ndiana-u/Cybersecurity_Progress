@@ -1,10 +1,11 @@
-LAB NAME: 
+LAB NAME: Reflected XSS into a JavaScript string with angle brackets HTML encoded
 
 DESCRIPTION
+This lab contains a reflected cross-site scripting vulnerability in the search query tracking functionality where angle brackets are encoded. The reflection occurs inside a JavaScript string. To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the alert function.
 
+DIFFICULTY LEVEL: Apprentice.
 
-DIFFICULTY LEVEL:.
-
-LAB LINK: 
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-javascript-string-angle-brackets-html-encoded
 
 STEPS I USED TO SOLVE THIS LAB
+I searched for a random payload with angle brackets to confirm that the angle brackets are being HTML encoded.

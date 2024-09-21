@@ -1,10 +1,12 @@
-LAB NAME: 
+LAB NAME:  Reflected XSS into a JavaScript string with single quote and backslash escaped
 
 DESCRIPTION
+This lab contains a reflected cross-site scripting vulnerability in the search query tracking functionality. The reflection occurs inside a JavaScript string with single quotes and backslashes escaped.
+To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the alert function.
 
+DIFFICULTY LEVEL:PRACTITIONER
 
-DIFFICULTY LEVEL:.
-
-LAB LINK: 
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-javascript-string-single-quote-backslash-escaped
 
 STEPS I USED TO SOLVE THIS LAB
+I searched for: </script><img src=1 onerror=alert(document.domain)>

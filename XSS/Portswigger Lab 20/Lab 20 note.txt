@@ -1,0 +1,20 @@
+LAB NAME: Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
+
+DESCRIPTION
+This lab contains a stored cross-site scripting vulnerability in the comment functionality.
+To solve this lab, submit a comment that calls the alert function when the comment author name is clicked.
+
+DIFFICULTY LEVEL: PRACTITIONER.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-onclick-event-angle-brackets-double-quotes-html-encoded-single-quotes-backslash-escaped
+
+STEPS I USED TO SOLVE THIS LAB
+- I posted a comment with a random alphanumeric string in the "Website" input, then use Burp Suite to intercept the request and sent it to Burp Repeater.
+- I made a second request in the browser to view the post and use Burp Suite to intercept the request and sent it to Burp Repeater.
+- I observed that the random string in the second Repeater tab has been reflected inside an onclick event handler attribute.
+- I repeated the process again but this time I modified my input to inject a JavaScript URL that calls alert, using the following payload:
+ http://foo?&apos;-alert(document.domain)-&apos;
+- I noticed that when i went back to my browser to view the bloga and click on the comment author's name, the alert function was called but an error was thrown because of the wrong link.
+- So I went back to Burp Repeater and added an onerror event handler to the comment I made thaat had the payload.
+- this is the onerror event handler i added and what it does what, when an error is met, it would go back to the blog post:
+ %20onerror=https://0a5f002804c82410810084e5007d00e6.web-security-academy.net/post?postId=10

@@ -1,0 +1,17 @@
+LAB NAME: Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
+
+DESCRIPTION
+This lab contains a reflected cross-site scripting vulnerability in the search query tracking functionality where angle brackets and double are HTML encoded and single quotes are escaped.
+
+To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the alert function.
+
+DIFFICULTY LEVEL: PRACTITIONER.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-javascript-string-angle-brackets-double-quotes-encoded-single-quotes-escaped
+
+STEPS I USED TO SOLVE THIS LAB
+payload used: \';alert(1)//
+\: a first backlash to counter the one from the page
+';: to terminate what was running before and calla new function
+alert(1) : to call the alert functiom
+//: to comment out the rest of the js code.

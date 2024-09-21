@@ -1,0 +1,12 @@
+LAB NAME: Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
+
+DESCRIPTION
+This lab contains a reflected cross-site scripting vulnerability in the search blog functionality. The reflection occurs inside a template string with angle brackets, single, and double quotes HTML encoded, and backticks escaped. To solve this lab, perform a cross-site scripting attack that calls the alert function inside the template string.
+
+DIFFICULTY LEVEL: PRACTITIONER.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-javascript-template-literal-angle-brackets-single-double-quotes-backslash-backticks-escaped
+
+STEPS I USED TO SOLVE THIS LAB
+I searched for ${alert(document.domain)}
+i did this because the xss context was into a Javascript template literal.

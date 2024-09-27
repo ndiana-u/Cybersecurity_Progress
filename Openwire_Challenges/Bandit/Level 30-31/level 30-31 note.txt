@@ -11,14 +11,25 @@ COMMANDS YOU MAY NEED:
 git
 
 STEPS
-1. log in to bandit29
+1. log in to bandit30
 2. mktemp -d : to create a temporary directory
 3. cd /tmp/'tmp-directory': to change to that temporary directory
-4. git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo : to clone the repository
-5. Input the password which is the same as bandit29 password
+4. git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo : to clone the repository
+5. Input the password which is the same as bandit30 password
 6. cd repo : change to the repo directory
 7. ls -l : to list files/directories
 8. cat README.md : to read the content of the file.
-
+It was an empty file.
+9. git tag : to see all tags in the repository
+10. git show 'tag-name' : to view details of that specific tag
 
 LEVEL 31 PASSWORD
+fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
+
+GIT TAG 
+In Git, a tag is a reference that points to a specific commit, often used to mark important points in the repository’s history, such as 
+releases (e.g., version 1.0, v2.5). Tags are similar to branches, but unlike branches, they don’t move once created — they are fixed 
+references to a commit.
+
+
+

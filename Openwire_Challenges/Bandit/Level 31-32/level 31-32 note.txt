@@ -14,10 +14,25 @@ STEPS
 1. log in to bandit31
 2. mktemp -d : to create a temporary directory
 3. cd /tmp/'tmp-directory': to change to that temporary directory
-4. git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo : to clone the repository
-5. Input the password which is the same as bandit29 password
+4. git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo : to clone the repository
+5. Input the password which is the same as bandit31 password
 6. cd repo : change to the repo directory
-7. ls -l : to list files/directories
+7. ls -la : to list files/directories
 8. cat README.md : to read the content of the file.
+There was an instruction to create and push a file called 'key.txt' to the master branch with content 'May I come in?'
+9. echo 'May I come in' > key.txt : to create a text file with that content.
+10. ls -la : notice that key.txt is included in the list of files and directories now.
+11. cat .gitignore: to check the content of the .gitignore file in the repository.
+The .gitignore content is *.txt. This means that git is to ignore all .txt files. This isn't good and won't allow me to fulfill my objective.
+12. rm .gitignore : to delete the file which would prevent me from pushing 'key.txt'.
+13. git add . : to add all files into the staging area.
+14. git commit -m 'commit-message here' : to commit your file into your local commit. You need to add a commit message too.
+15. git push (or git push origin master) : pushes the changes to the default remote repository (which is "origin") and the default 
+branch (which is "master"). 
+'git push origin master' sends (or uploads) the changes you made in your local "master" branch to the "origin" (usually the remote repository 
+where your code is hosted, like GitHub).
+16. Input password which is the same as bandit31 password.
+After pushing the key.txt file the level 32 password was displayed.
 
 LEVEL 32 PASSWORD
+3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K

@@ -28,3 +28,8 @@ STEPS
 LEVEL 30 PASSWORD
 qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
 
+GIT BRANCH 
+A Git branch is like a separate line of development in your project. It allows you to work on different features, fixes, or experiments without affecting the main codebase.
+Key Points About Git Branches:
+- Separate Workspaces: Each branch has its own set of changes, so you can work on multiple things at once without interfering with each other.
+- Main Branch: Usually, there’s a main branch (commonly called master or main) where stable code lives. You can create other branches for new features or fixes.

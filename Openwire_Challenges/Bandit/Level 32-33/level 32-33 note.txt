@@ -1,5 +1,5 @@
 LOGIN
-ssh bandit25@bandit.labs.overthewire.org -p 2220
+ssh bandit32@bandit.labs.overthewire.org -p 2220
 
 
 DESCRIPTION
@@ -9,5 +9,18 @@ COMMANDS YOU MAY NEED
 sh, man
 
 STEPS
+1. ls : I noticed that the command was changed to uppercase
+2. $0 :  spawns a new shell. I need to get out of the uppercase shell and to a normal one. 
+3. echo $0: to get the name of the currently used shell. It is sh.
+4. ls -la : to list all files or directories.
+See that the SUID bit is set for the uppershell (The SUID bit allows a file to be executed with the same privileges as the owner of the file) 
+and the binary is owned by bandit33.
+5. whoami : to check the user's identity and it is bandit33.
+6. id: just to confirm the identity of the user. 
+7. cat /etc/bandit_pass/bandit33 : to get the password for bandit33.
 
 LEVEL 33 PASSWORD
+tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
+
+
+

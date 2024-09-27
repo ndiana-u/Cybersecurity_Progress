@@ -1,0 +1,13 @@
+LOGIN
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+
+
+DESCRIPTION
+After all this git stuff, it’s time for another escape. Good luck!
+
+COMMANDS YOU MAY NEED
+sh, man
+
+STEPS
+
+LEVEL 33 PASSWORD

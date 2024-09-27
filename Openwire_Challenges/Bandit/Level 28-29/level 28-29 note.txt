@@ -1,5 +1,5 @@
 LOGIN
-ssh bandit25@bandit.labs.overthewire.org -p 2220
+ssh bandit28@bandit.labs.overthewire.org -p 2220
 
 
 DESCRIPTION
@@ -11,11 +11,11 @@ COMMANDS YOU MAY NEED:
 git
 
 STEPS
-1. log in to bandit27
+1. log in to bandit28
 2. mktemp -d : to create a temporary directory
 3. cd /tmp/'tmp-directory': to change to that temporary directory
-4. git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo : to clone the repository
-5. Input the password which is the same as bandit27 password
+4. git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo : to clone the repository
+5. Input the password which is the same as bandit28 password
 6. cd repo : change to the repo directory
 7. ls -l : to list files/directories
 8. cat README.md : to read the content of the file.

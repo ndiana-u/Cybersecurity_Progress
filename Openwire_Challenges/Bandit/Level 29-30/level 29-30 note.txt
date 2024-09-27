@@ -11,11 +11,19 @@ COMMANDS YOU MAY NEED:
 git
 
 STEPS
-
-git branch -a
-git checkout remotes/origin/dev
-ls -la
-cat README.md
+1. log in to bandit29
+2. mktemp -d : to create a temporary directory
+3. cd /tmp/'tmp-directory': to change to that temporary directory
+4. git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo : to clone the repository
+5. Input the password which is the same as bandit29 password
+6. cd repo : change to the repo directory
+7. ls -l : to list files/directories
+8. cat README.md : to read the content of the file.
+9. The password was not provided. 
+10. git branch -a : to check all the branches of the repo
+11. git checkout remotes/origin/dev : to see/ 'checkout' that particular branch
+12. ls -la : to list all the content of that branch
+13. cat README.md : to see the contents of the README.md file.
 
 LEVEL 30 PASSWORD
 qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL

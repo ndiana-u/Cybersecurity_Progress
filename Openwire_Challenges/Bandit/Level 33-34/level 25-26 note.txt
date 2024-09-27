@@ -1,9 +1,9 @@
 LOGIN
-ssh bandit25@bandit.labs.overthewire.org -p 2220
+ssh bandit33@bandit.labs.overthewire.org -p 2220
 
 
 DESCRIPTION
-
+At this moment, level 34 does not exist yet.
 
 STEPS
 

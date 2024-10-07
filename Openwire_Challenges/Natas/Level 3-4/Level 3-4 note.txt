@@ -1,0 +1,21 @@
+LOGIN DETAILS
+Username: natas4
+password: QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+URL:      http://natas4.natas.labs.overthewire.org
+
+DESCRIPTION
+Access disallowed. You are visiting from "" while authorized users should come only from "http://natas5.natas.labs.overthewire.org/"
+
+STEPS TO SOLVE IT
+- I had to work with curl today. curl is a tool to transfer data from or to a server.
+- There was no hint in the inspect tab.
+- This level required that I access this page from natas5 wedsite link and not natas4. This means that I have to change the HTTP header on its 
+way to the server, hence the use of curl.
+- The curl syntax: curl <url to get data from> -u <user> -e <referrer URL>
+- I ran this command in bash: curl http://natas4.natas.labs.overthewire.org/ -u natas4 -e http://natas5.natas.labs.overthewire.org/
+- It outputted the command in the terminal.
+
+LEVEL 5 PASSWORD
+0n35PkggAPm2zbEpOU802c0x0Msn1ToK
+
+

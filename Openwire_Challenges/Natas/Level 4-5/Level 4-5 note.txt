@@ -1,0 +1,22 @@
+LOGIN DETAILS
+Username: natas5
+password: 0n35PkggAPm2zbEpOU802c0x0Msn1ToK
+URL:      http://natas5.natas.labs.overthewire.org
+
+DESCRIPTION
+Access disallowed. You are not logged in
+
+STEPS TO SOLVE IT
+- I wasn't logged in
+- The inspect tab, elements section didnt show me anything. 
+- So I went to 'application', then clicked on the cookies area. The value of the logged in cookie was 0 so I changed it to 1.
+- I changed the cookie value by rightclicking on it and then clicking on 'edit value'.
+- The description on natas5 page changed to 'Access granted. The password for natas6 is 0RoJwHdSKWFTYR5WuiAewauSuNaBXned'
+
+
+LEVEL 6 PASSWORD
+0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+
+
+
+

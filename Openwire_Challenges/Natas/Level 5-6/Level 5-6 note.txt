@@ -1,0 +1,20 @@
+LOGIN DETAILS
+Username: natas6
+password: 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+URL:      http://natas6.natas.labs.overthewire.org
+
+DESCRIPTION
+
+STEPS TO SOLVE IT
+- I was asked to input the 'secret' value and the source code was provided.
+- while going through the source code, I saw that the 'secret' value was in the 'includes/secret.inc' file. If the input I entered was the same
+as the value in secret.inc, level 7 password would be displayed.
+- This is the secret value - FOEIUWGHFEEUHOFUOIU.
+- After I inputted it I got the password.
+
+
+LEVEL 7 PASSWORD
+bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+
+SKILL I USED
+- Reading source code.

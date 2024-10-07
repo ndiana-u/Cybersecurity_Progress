@@ -1,0 +1,43 @@
+LOGIN DETAILS
+Username: natas9
+password: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+URL:      http://natas9.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- i went through the source code and I realized that the input was being executed without any form of sanitization.
+- this means that I could do command injection.
+- When I added a semicolon before running a command it would break out of grep in the passthru function and execute whatever is after the 
+semi-colon.
+- I ran ; ls-la; first and all the directories and files contained in natas 9 showed.
+- I ran this command and got the password:  ; cat /etc/natas_webpass/natas10;
+
+
+LEVEL 10 PASSWORD
+t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+
+SKILL I USED
+Command Injection
+
+
+EXPLANATION OF SOURCE CODE
+1. Initialization:
+$key = "";
+* The variable $key is initialized as an empty string. It will later hold the user-provided input.
+
+2. Checking for Input:
+if(array_key_exists("needle", $_REQUEST)) {
+    $key = $_REQUEST["needle"];
+}
+* The array_key_exists("needle", $_REQUEST) checks if the parameter needle exists in the $_REQUEST array, which combines $_GET, $_POST, and $_COOKIE data.
+If the needle parameter exists, its value is assigned to $key.
+
+3.  Executing a Command:
+if($key != "") {
+    passthru("grep -i $key dictionary.txt");
+}
+* If $key is not empty (meaning the user provided some input via needle), the code uses the passthru() function to execute a shell command.
+The command being executed is grep -i $key dictionary.txt, where:
+grep -i: Searches the file dictionary.txt for lines that match $key, ignoring case (because of the -i flag).
+$key: The user’s input is inserted into the shell command.
+dictionary.txt: The file being searched for occurrences of $key

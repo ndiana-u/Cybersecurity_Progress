@@ -1,0 +1,15 @@
+LOGIN DETAILS
+Username: natas10
+password: 
+URL:      http://natas10.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- These symbols were blocked ;, | and &.
+- so I used this symbol '$' to execute my command.
+- The command I ran to get my password- $ cat /etc/natas_webpass/natas11
+
+
+
+LEVEL 11 PASSWORD
+UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk

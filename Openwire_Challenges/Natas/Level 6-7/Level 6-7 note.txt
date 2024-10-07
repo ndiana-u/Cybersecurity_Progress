@@ -1,0 +1,20 @@
+LOGIN DETAILS
+Username: natas7
+password: bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+URL:      http://natas7.natas.labs.overthewire.org
+
+STEPS TO SOLVE IT
+- The hint given was <!-- hint: password for webuser natas8 is in /etc/natas_webpass/natas8 -->
+- Two pages that could be accessed from the webpage directly were the home and about pages.
+- I needed a way to navigate to /etc/natas_webpass/natas directly.
+- I tried http://natas7.natas.labs.overthewire.org/etc/natas_webpass/natas and it didnt work.
+- This is the url for the home page- http://natas7.natas.labs.overthewire.org/index.php?page=home 
+- This is where path traversal came in. I had to set the page variable to the relative path of our password file and that's when it worked. 
+- This is the link to access the password file- http://natas7.natas.labs.overthewire.org/index.php?page=../../../../etc/natas_webpass/natas8
+
+
+LEVEL 8 PASSWORD
+xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+
+SKILL I USED
+- Path Traversal. 

@@ -1,0 +1,20 @@
+LOGIN DETAILS
+Username: natas2
+password: TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
+URL:      http://natas2.natas.labs.overthewire.org
+
+DESCRIPTION
+
+STEPS TO SOLVE IT
+- I went to the inspect tab. There was nothing there except for an image file with the link to the file.
+- I clicked on it but it was a blank image. 
+- The image link was files/pixels.png. I removed the pixels.png from the link so i could access the files directory.
+- In the files directory there was a users.txt file. It contained a number of passwords including that for natas3.
+
+
+LEVEL 3 PASSWORD
+3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
+
+
+
+

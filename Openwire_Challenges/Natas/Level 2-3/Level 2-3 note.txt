@@ -1,0 +1,22 @@
+LOGIN DETAILS
+Username: natas3
+password: 3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
+URL:      http://natas3.natas.labs.overthewire.org
+
+DESCRIPTION
+There is nothing on this page.
+
+STEPS TO SOLVE IT
+- There was no information link but a hint was embedded in the inspect tab. 
+- The comment said that 'not even google could find it'. It was talking about the robots.txt page, which Google uses to tell search engine
+crawlers which URLs the crawler can access on the site. It is used to identify restricted or private areas of a site.
+- I navigated to this link- http://natas3.natas.labs.overthewire.org/robots.txt. A directory called /s3cr3t/ access was disallowed.
+- I accessed the directory via http://natas3.natas.labs.overthewire.org/s3cr3t/
+- A user.txt file was there which contained natas4 password.
+
+
+LEVEL 4 PASSWORD
+QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+
+
+

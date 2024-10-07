@@ -1,0 +1,20 @@
+LOGIN DETAILS
+Username: natas1
+password: 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+URL:      http://natas1.natas.labs.overthewire.org
+
+DESCRIPTION
+You can find the password for the next level on this page, but rightclicking has been blocked!
+
+STEPS TO SOLVE IT
+- I pressed 'ctrl + shift + I' to open the Inspect page.
+- The password was in a div element.
+- To copy the password I right clicked on it. Then clicked on 'copy' then 'copy element'.
+
+LEVEL 2 PASSWORD
+TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
+
+
+
+
+

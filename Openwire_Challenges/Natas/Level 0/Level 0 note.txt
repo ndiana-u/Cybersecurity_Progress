@@ -1,0 +1,13 @@
+LOGIN DETAILS
+username: natas0
+password: natas0
+URL: http://natas0.natas.labs.overthewire.org
+
+STEPS TO SOLVE IT
+- Right-clicked on the page.
+- Clicked on 'Inspect'
+- The password for natas1 was in the html as a comment.
+
+
+LEVEL 1 PASSWORD
+0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq

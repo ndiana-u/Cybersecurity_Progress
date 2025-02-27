@@ -11,6 +11,14 @@ man, grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 # STEPS
 command: grep "millionth" data.txt
 
+### **Steps I Took**  
+
+1. Used `grep` to search for the word **"millionth"** inside `data.txt`:  
+   ```sh
+   grep "millionth" data.txt
+   ```  
+
+That was it—quick and straightforward!
 
 # LEVEL 8 PASSOWRD
 dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc

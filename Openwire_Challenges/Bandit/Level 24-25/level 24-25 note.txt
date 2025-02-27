@@ -18,6 +18,65 @@ Inside the text file, write or paste your script and save.
 5. chmod +x bruteforce.sh : to add execute privilege to the bruteforce script.
 6. ./bruteforce.sh : to execute the shells script.
 
+This level was **really engaging** because I had to **brute-force a secret PIN** while interacting with a network service! Here's a **personalized breakdown** of what I did:  
+
+---
+
+### **STEPS**  
+
+1️⃣ **Checked how the service accepts input:**  
+   ```bash
+   nc localhost 30002
+   ```  
+   This showed that the daemon expected the **password and secret PIN on a single line**, separated by a space.  
+
+2️⃣ **Created a temporary working directory:**  
+   ```bash
+   mktemp -d
+   ```  
+   This ensured I had a clean and organized space for my brute-force script.  
+
+3️⃣ **Navigated to the temporary directory:**  
+   ```bash
+   cd /tmp/'temporary_directory'
+   ```  
+
+4️⃣ **Secured the directory by restricting permissions:**  
+   ```bash
+   chmod 700 -R /tmp/'temporary_directory'
+   ```  
+   This prevented others from accessing my files while I worked.  
+
+---
+
+### **Writing the Brute-Force Script**  
+
+5️⃣ **Created a shell script for brute-forcing the PIN:**  
+   ```bash
+   nano bruteforce.sh
+   ```  
+   Inside the file, I wrote a script to **try multiple PIN combinations automatically**.  
+
+6️⃣ **Made the script executable:**  
+   ```bash
+   chmod +x bruteforce.sh
+   ```  
+   This allowed me to run it as a program.  
+
+7️⃣ **Executed the brute-force script:**  
+   ```bash
+   ./bruteforce.sh
+   ```  
+   The script **sent multiple PIN attempts to the server** until it found the correct one, revealing the password!  
+
+---
+
+### **What I Learned From This Level**  
+- **How to interact with network services** using `nc`.  
+- **Automating brute-force attacks** with a shell script.  
+- **The importance of secure authentication mechanisms** to prevent brute-force attacks.  
+
+This challenge was **fun and practical**, especially for understanding **network-based brute-force techniques!**
 
 LEVEL 25 PASSWORD
 iCi86ttT4KSNe1armKiwbQNmB3YJP3q4

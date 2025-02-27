@@ -10,7 +10,7 @@ sh, man
 
 STEPS
 1. ls : I noticed that the command was changed to uppercase
-2. $0 :  spawns a new shell. I need to get out of the uppercase shell and to a normal one. 
+2. $0 :  spawns a new shell. I needed to get out of the uppercase shell and to a normal one. 
 3. echo $0: to get the name of the currently used shell. It is sh.
 4. ls -la : to list all files or directories.
 See that the SUID bit is set for the uppershell (The SUID bit allows a file to be executed with the same privileges as the owner of the file) 
@@ -18,6 +18,50 @@ and the binary is owned by bandit33.
 5. whoami : to check the user's identity and it is bandit33.
 6. id: just to confirm the identity of the user. 
 7. cat /etc/bandit_pass/bandit33 : to get the password for bandit33.
+
+Here’s the refined version with a natural flow and skills learned:
+
+---
+
+Logged into **bandit32** and ran `ls`, but the command failed. Noticed it had been changed to **uppercase**. That meant I was in a restricted shell.  
+
+To break out of it, spawned a new shell with:  
+```bash
+$0
+```  
+Checked the shell type:  
+```bash
+echo $0
+```  
+It returned **sh**, so I was in a normal shell now.  
+
+Next, listed all files with:  
+```bash
+ls -la
+```  
+Saw that the **uppershell** binary had the **SUID bit set**, meaning it executes with the privileges of its owner (**bandit33**).  
+
+Checked my current user just to confirm:  
+```bash
+whoami
+id
+```  
+Both confirmed that I was **bandit33** now.  
+
+From there, reading the password was straightforward:  
+```bash
+cat /etc/bandit_pass/bandit33
+```  
+
+### **Skills Learned**  
+- **Understanding Restricted Shells** – How they work and how to escape them.  
+- **Spawning New Shells** – Using `$0` to bypass restrictions.  
+- **Checking System Permissions** – Identifying SUID binaries and their implications.  
+- **Privilege Escalation** – Exploiting SUID to gain access to higher-privileged files.  
+
+---
+
+This version keeps it clear, personal, and structured. Let me know if you want any tweaks!
 
 LEVEL 33 PASSWORD
 tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0

@@ -10,6 +10,18 @@ SOLUTION
 ls - to list file in directory
 METHOD: cat ./'spaces in this filename'
 
+### **Solution**  
+
+1. Used `ls` to list the files in the directory:  
+   ```sh
+   ls
+   ```  
+2. Saw a file with spaces in its name. Tried different ways to read it, and what worked was:  
+   ```sh
+   cat ./'spaces in this filename'
+   ```  
+
+Spacing in filenames can be tricky, but wrapping it in quotes did the job!
 
 LEVEL 3 PASSWORD
 MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx

@@ -30,6 +30,59 @@ The group and others have no permissions (0).
 11. ssh -i sshkey.private bandit17@localhost -p 2220 - use the key as a pass for bandit17 level
 12. cat /etc/bandit_pass/bandit17 - to get the password for level 17
 
+### **Steps I Took**  
+
+1. **Scanned for open ports** in the specified range:  
+   ```sh
+   nmap -p 31000-32000 localhost
+   ```  
+   - Found **5 open ports**: `31046, 31518, 31691, 31790, 31960`.  
+
+2. **Tried connecting to each port using ncat with SSL** until I found the one returning the RSA key:  
+   ```sh
+   ncat --ssl localhost <port>
+   ```  
+   - Wrong ports just echoed back the password. The right one gave me an **RSA private key**.  
+
+3. **Copied the RSA key** (from `BEGIN RSA PRIVATE KEY` to `END RSA PRIVATE KEY`).  
+
+4. **Created a temporary directory to store the key:**  
+   ```sh
+   mkdir /tmp/privatekey_folder
+   cd /tmp/privatekey_folder
+   ```  
+
+5. **Saved the RSA key into a file using nano:**  
+   ```sh
+   nano sshkey.private
+   ```  
+   - Pasted the copied key, then saved the file (`Ctrl + X`, then **Yes**).  
+
+6. **Checked and updated file permissions:**  
+   ```sh
+   ls -l sshkey.private  # Checked file permissions  
+   chmod 700 sshkey.private  # Restricted access to owner only  
+   ```  
+
+7. **Used the private key to log in as bandit17:**  
+   ```sh
+   ssh -i sshkey.private bandit17@localhost -p 2220
+   ```  
+
+8. **Retrieved the password for the next level:**  
+   ```sh
+   cat /etc/bandit_pass/bandit17
+   ```  
+
+---
+
+### **Skill Learned**  
+- **Port scanning with `nmap`** to identify open services.  
+- **Using `ncat` for encrypted communication** over SSL.  
+- **Handling RSA private keys** for SSH authentication.  
+
+### **Thoughts**  
+This one had a mix of **scanning, connecting, and key management**—felt like a real-world security task!
 
 LEVEL 17 PASSWORD
 EReVavePLFHtFlFsjn3hyzMlvSuSAcRD

@@ -1,0 +1,11 @@
+LOGIN DETAILS
+Username: natas16
+password: hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
+URL:      http://natas16.natas.labs.overthewire.org
+
+STEPS TO SOLVE IT
+
+
+
+
+LEVEL 1 PASSWORD

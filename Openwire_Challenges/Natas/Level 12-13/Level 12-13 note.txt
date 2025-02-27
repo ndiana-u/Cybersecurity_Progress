@@ -1,0 +1,27 @@
+LOGIN DETAILS
+Username: natas13
+password: trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC
+URL:      http://natas13.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- I created a jpeg file of under 1kb by cropping and compressing an existing jpeg file.
+- I opened the under 1kb jpeg file with a notepad(you can use any text editor).
+- At the end of the file I added a php script to it and then saved it with a .php extension (mine was polygot_reduced.php)
+- The php script I appended to the jpeg file:
+<?php
+echo file_get_contents("/etc/natas_webpass/natas14");
+?>
+- My new file is a polygot file. The exif_imagetype() function in the source code is there to ensure only image files are uploaded. To bypass 
+this Polyglot files (valid image + PHP payload) are the most reliable method.The file will pass the image check and will still execute PHP code.
+- I went back to natas13 webpage and choose my polygot file. I clicked upload and then intercepted the request using Burp proxy.
+- I changed the extension of the new name of the file given by the site from .jpg to .php.
+- then I forwarded the request.
+- The file successfully uploaded.
+- I clicked on the image link and the level 14 password was displayed under the image.
+
+LEVEL 14 PASSWORD
+z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ
+
+
+

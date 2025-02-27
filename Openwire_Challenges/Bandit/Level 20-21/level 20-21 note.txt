@@ -30,6 +30,42 @@ In the first terminal,
 *You'll notice that in the client terminal, a message popped up verifying that the password sent by the server matches.
 
 
+### **Steps I Took**  
+
+#### **A: Setting Up a Listening Server**  
+1. **Opened a new terminal and connected via SSH to level 20.**  
+2. **Started a local network server** that listens for incoming connections:  
+   ```sh
+   nc -lvp 12334 -s 127.0.0.1
+   ```  
+   - This tells **netcat** to listen on port **12334** on localhost.  
+
+#### **B: Running the SetUID Binary**  
+1. **Opened another terminal (while the first terminal was still listening).**  
+2. **Checked for the SetUID binary:**  
+   ```sh
+   ls -l
+   ```  
+   - Looked for a file with `-rwsr-x---`, indicating it runs with another user's privileges.  
+3. **Executed the binary, passing the port number:**  
+   ```sh
+   ./suconnect 12334
+   ```  
+   - This connected the **binary** to my **listening server**.  
+
+#### **C: Sending and Receiving the Password**  
+1. **In the first terminal (server), I typed the level 20 password and pressed enter.**  
+2. **The client (SetUID binary) validated it and sent back the level 21 password.**  
+
+---
+
+### **Skill Learned**  
+- **Using `netcat` to create a simple network server** for handling connections.  
+- **Understanding how a SetUID binary can send and receive data** over a network.  
+
+### **Thoughts**  
+This felt like setting up a mini client-server interaction. Seeing how `netcat` and SetUID binaries can work together was pretty cool!
+
 LEVEL 21 PASSWORD
 EeoULMCra2q0dSkYj561DX7s1CpBuOBt
 
@@ -47,3 +83,18 @@ nc: to set up network daemon and a simple server.
 -p: specifies the port number to listen on.
 12334: a random non-privileged port number (above 1024) to avoid needing root permissions.
 -s 127.0.0.1: makes sure it listens only on localhost (127.0.0.1), which ensures only local connections are allowed.
+
+This explanation is useful if you want to document the reasoning behind your approach. If you want to keep it, you could add it as a **"Concepts Learned"** section at the end of your notes.  
+
+Example:  
+
+---
+### **Concepts Learned**  
+- **Network Daemon**: A background service that listens for incoming connections, allowing communication between a client and server.  
+- **Netcat (`nc`) Options**:  
+  - `-l`: Listen for connections  
+  - `-v`: Verbose output  
+  - `-p 12334`: Listen on port 12334  
+  - `-s 127.0.0.1`: Restrict listening to localhost  
+
+This way, your notes stay structured while keeping explanations separate from the actual steps. Let me know if you want me to refine it further!

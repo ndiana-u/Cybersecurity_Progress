@@ -15,5 +15,27 @@ ssh -i sshkey.private bandit14@localhost -p 2220
 Now logged in as bandit14 with private key
 cat /etc/bandit_pass/bandit14 = to get password for level 14
 
+### **Steps I Took**  
+
+1. **Used SSH with a private key** for authentication:  
+   ```sh
+   ssh -i /path/to/private_key username@remote_host
+   ```  
+   - In my case, I used:  
+     ```sh
+     ssh -i sshkey.private bandit14@localhost -p 2220
+     ```  
+   - This logged me in as **bandit14**.  
+
+2. **Retrieved the password for the next level:**  
+   ```sh
+   cat /etc/bandit_pass/bandit14
+   ```  
+
+---
+
+### **Thoughts**  
+First time using SSH with a private key. No password needed—just the key, and I was in!
+
 LEVEL 14 PASSWORD
 MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS

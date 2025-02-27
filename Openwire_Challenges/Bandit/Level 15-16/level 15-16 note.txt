@@ -15,6 +15,23 @@ After logging in;
 command: openssl s_client -connect localhost:30001
 Then type the previous password.
 
+### **Steps I Took**  
+
+1. **Logged in to the server.**  
+2. **Connected to the specified port using OpenSSL:**  
+   ```sh
+   openssl s_client -connect localhost:30001
+   ```  
+3. **Entered the previous level’s password** when prompted.  
+
+---
+
+### **Skill Learned**  
+- **Using OpenSSL to establish a secure connection** over TLS.  
+
+### **Thoughts**  
+First time using `openssl s_client`—felt like manually handling SSL/TLS communication!
+
 # EXPLANATION
 You first establish a secure connection using openssl before sending or receiving data. Format: openssl s_client -connect remote_host:port
 

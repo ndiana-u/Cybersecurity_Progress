@@ -1,0 +1,82 @@
+LOGIN DETAILS
+Username: natas11
+password: UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+URL:      http://natas11.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- I had to anaylze the source code to understand what is going on.
+- I wrote a php script to get the key used to xor-encrypt the data cookie. The key is eDWo.
+- Then I wrote another php script to generate a new data cookie value using the key I got from the previous script.
+- I changed the #defaultdata 'showpassword' value from no to yes in the script. My new $data variable was:
+$data = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
+- I set a new data cookie value  by encoding, encrypting and then base64_encoding the $data variable:
+base64_encode(xor_encrypt(json_encode($data))); 
+
+
+
+LEVEL 12 PASSWORD
+yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
+
+
+ANALYSIS OF SOURCE CODE
+(A)
+- A default data variable
+$defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
+
+- They defined 3 functions
+1. function xor_encrypt($in)
+2. function loadData($def)
+3. function saveData($d)
+
+- Then they declared a new variable and called the functions with it.
+$data = loadData($defaultdata)
+saveData($data)
+
+
+(B)
+ANALYSIS of xor_encrypt(), loadData() and saveData() using $data variable declared and the 2 lines of code above
+xor_encrypt($in)
+- Takes an input value $in and xor it with a key value.
+
+loadData($defaultdata)
+- It sets the placeholder $def as $defaultdata.
+- Then checks if "data" object exists in the cookie
+- Then it creates a temporary variable called $tempdata which it assigns the json-decoded, xor-encrypted and base64-decoded data part of the 
+cookie. Then it checks if it is an array, and 'showpassword' and 'bg color' exists in it. If it does it returns $defaultdata value back. 
+- so it is more of a checker of the data portion of the cookie to see if it contains all appropriate aspects. It doesn't change any value.
+
+saveData($data)
+- It simply sets the data portion of the cookie with the encoded shape of the $data array. So it is going to take $defaultdata value since that 
+is what $data variable contains and then base64-encode, xor-encrypt and json-encode it. Then assigns it to "data" object of the cookie.
+
+(C)
+A xor 0 = A 
+A xor A = A 
+(A xor B) xor C = A xor (B xor C)
+(B xor A) xor A = B xor 0 = B    *very important*
+
+key xor plainText = encryptedValue
+encryptedvalue xor plainText = key
+
+TO GET KEY AND A NEW DATA COOKIE VALUE 
+Remember: setcookie("data", base64_encode(xor_encrypt(json_encode($d)))); This is how the data value in the cookie was gotten. 
+I will break down this part first: xor_encrypt(json_encode($d)) 
+- The plainText value xor-ed with the key is json_encode($d).
+- Our $d is $data value(which is $defaultdata). So this means our plainText = json_encode($defaultdata)
+- So our encryptedValue = xor_encrypt(json_encode($d))
+STEPS
+1. base64_decode the data cookie value to get the encryptedValue.
+2. json_encode($defaultdata) to get the plainText.
+3. xor_encrypt the encryptedValue and plainText. You can set one as the key within the function and the other as the parameter to xor_encrypt.
+4. The output is the real key value used. It is repeated several times in the output something like 'eDwoeDwoeDwoeDwoDwoeDwoe'. The key value
+is 'eDWo'
+5. Then set the key value in the xor_encrypt function back to the real value.
+6. Change the 'showpassword' value in the $data variable to yes. Like this:
+$data = array( "showpassword"=>"yes", "bgcolor"=>"#ffffff");
+7. set a new data cookie value with setcookie("data", base64_encode(xor_encrypt(json_encode($data))));
+
+SKILLS USED/LEARNT
+- Reverse engineering, xor encryption, cookie manipulation.
+
+

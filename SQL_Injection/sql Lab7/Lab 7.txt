@@ -1,0 +1,23 @@
+LAB NAME: SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+DESCRIPTION
+This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an 
+injected query.
+
+To solve the lab, display the database version string.
+
+DIFFICULTY LEVEL: Practitioner
+
+LAB LINK: https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-mysql-microsoft
+
+STEPS I USED TO SOLVE THIS LAB 
+- I selected a category, intercepted the request in Burp proxy then sent the request to Burp repeater.
+- In front of the product category filter, I added '+UNION+SELECT+NULL-- and i kept getting errors. I incremented the nulls a couple of times 
+and still got errors.
+- I changed the comment sign to # and that's when it worked.
+- I checked the number of columns which was returned by the original query using the payload: '+UNION+SELECT+NULL,NULL#
+The query returned 2 colums.
+- Next I checked each column for the one which accepted string data using: '+UNION+SELECT+'abc',NULL--  for the first column and
+'+UNION+SELECT+NULL,'abc'# for the scond column. I didnt get any error both times so that meant that the columns accept string data.
+- To check the database version, I first checked if it was a Microsoft SQL or MySQL database using:
+'+UNION+SELECT+@@version,'abc'# and the database version was displayed. 

@@ -25,6 +25,58 @@ STEPS
 12. git show <commit-hash> : to see the changes made during that particular commit.
 The password was there.
 
+This level introduced **Git commit history analysis**, a crucial skill for **code review and security research**.  
+
+---
+
+### **STEPS**  
+
+1️⃣ **Logged into bandit28.**  
+
+2️⃣ **Created a temporary directory to work in:**  
+   ```bash
+   mktemp -d
+   cd /tmp/'tmp-directory'
+   ```  
+
+3️⃣ **Cloned the Git repository using SSH:**  
+   ```bash
+   git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+   ```  
+   - Entered the **bandit28 password** when prompted.  
+   - The repository was successfully downloaded.  
+
+4️⃣ **Navigated into the cloned repo and listed its contents:**  
+   ```bash
+   cd repo
+   ls -l
+   ```  
+
+5️⃣ **Checked the README file for the password:**  
+   ```bash
+   cat README.md
+   ```  
+   - No password was provided.  
+
+6️⃣ **Examined the commit history to look for clues:**  
+   ```bash
+   git log
+   ```  
+   - One commit message stood out: **"add missing data"**—which likely contained the password.  
+
+7️⃣ **Checked the details of that commit:**  
+   ```bash
+   git show <commit-hash>
+   ```  
+   - The commit diff showed **the password for bandit29** in the changes.  
+
+---
+
+### **Key Takeaways**  
+✅ **Using `git log` to track commit history.**  
+✅ **Using `git show` to inspect changes in specific commits.**  
+✅ **Understanding how version control can expose sensitive data.** 🚀
+
 LEVEL 29 PASSWORD
 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
 

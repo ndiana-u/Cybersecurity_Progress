@@ -1,0 +1,15 @@
+LAB NAME: SQL injection vulnerability allowing login bypass
+
+DESCRIPTION
+This lab contains a SQL injection vulnerability in the login function.
+
+To solve the lab, perform a SQL injection attack that logs in to the application as the administrator user.
+
+DIFFICULTY LEVEL: Apprentice
+
+LAB LINK: 
+https://portswigger.net/web-security/sql-injection/lab-login-bypass
+
+STEPS I USED TO SOLVE THIS LAB
+- I went to the log in page
+-I filled the username field with administrator'-- and the password field with a random word.

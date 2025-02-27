@@ -20,6 +20,44 @@ STEPS
 7. ls -l : to list files/directories
 8.  cat README : to read the content of the file.
 
+Got it! This level was about **accessing a Git repository and retrieving hidden credentials**—a useful skill in **source code auditing and security assessments**.  
+
+---
+
+### **STEPS**  
+
+1️⃣ **Logged into bandit27.**  
+
+2️⃣ **Created a temporary directory to work in (keeps things clean):**  
+   ```bash
+   mktemp -d
+   cd /tmp/'tmp-directory'
+   ```  
+
+3️⃣ **Cloned the Git repository using SSH:**  
+   ```bash
+   git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+   ```  
+   - Entered the **bandit27 password** when prompted.  
+   - The repository was successfully downloaded.  
+
+4️⃣ **Navigated into the cloned repo and listed its contents:**  
+   ```bash
+   cd repo
+   ls -l
+   ```  
+
+5️⃣ **Read the README file, which contained the password for bandit28:**  
+   ```bash
+   cat README
+   ```  
+
+---
+
+### **Key Takeaways**  
+✅ **Cloning a Git repository using SSH.**  
+✅ **Navigating Git repositories and extracting useful information.**  
+✅ **Understanding how sensitive data can sometimes be stored in version control.** 🚀
 
 LEVEL 28 PASSWORD
 Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN

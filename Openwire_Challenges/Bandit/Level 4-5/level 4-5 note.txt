@@ -11,6 +11,31 @@ ls -l = to list all files
 find . -type f -exec file {} + | grep 'text'   = to find human readable file
 cat ./-file07  = to read the contents of the file
 
+### **Steps I Took**  
+
+1. Listed the directories to see what was inside:  
+   ```sh
+   ls
+   ```  
+2. Changed into the **inhere** directory:  
+   ```sh
+   cd inhere
+   ```  
+3. Listed all files with details:  
+   ```sh
+   ls -l
+   ```  
+4. Needed to find a human-readable file, so I used:  
+   ```sh
+   find . -type f -exec file {} + | grep 'text'
+   ```  
+5. Once I found the right file (**-file07**), I read its contents with:  
+   ```sh
+   cat ./-file07
+   ```  
+
+Finding the right file took some work, but `find` + `file` made it easier!
+
 COMMANDS YOU MIGHT NEED: 
 ls , cd , cat , file , du , find
 

@@ -22,3 +22,53 @@ I wasted precious minutes on this error.
 
 
 
+ 
+
+---
+
+### **Steps to Solve**  
+
+1. First, I needed to figure out how to log in using SSH from the command prompt.  
+   - The basic command:  
+     ```sh
+     ssh username@remote_server
+     ```
+   - For Bandit:  
+     ```sh
+     ssh bandit0@bandit.labs.overthewire.org
+     ```
+   - If the port is different (like **2220** for Bandit):  
+     ```sh
+     ssh bandit0@bandit.labs.overthewire.org -p 2220
+     ```  
+
+---
+
+### **Errors & What I Learned**  
+
+#### **1. Permission Denied – Wrong Port**  
+- Tried logging in but kept getting **"Permission denied."** Turns out SSH was still using the default port (**22**) instead of **2220**.  
+- Thought I needed to change the port manually, so I tried editing `sshd_config`:  
+  ```sh
+  nano /etc/ssh/sshd_config
+  ```
+  **Nope.** Got denied.  
+- Realized I didn’t have root access. Tried running Git Bash as an admin:  
+  - **Searched for "Git Bash"**  
+  - **Right-click → Run as administrator**  
+
+- After all that, I finally realized... I was overcomplicating it. 😭  
+  **I didn’t need to change any config files—just add `-p 2220` to the SSH command.**  
+  ```sh
+  ssh username@remoteserver -p newPortNumber
+  ```
+
+---
+
+#### **2. Wrong Username/Password**  
+- Spent way too much time wondering why my login wasn’t working—only to realize I had typed the username or password wrong.  
+- **Lesson learned:** Always double-check before assuming it’s a deeper issue.  
+
+---
+
+This version keeps it simple and in your voice. Let me know if it works!

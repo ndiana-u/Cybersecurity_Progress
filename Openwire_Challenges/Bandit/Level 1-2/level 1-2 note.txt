@@ -12,6 +12,20 @@ STEPS
 some recommended "cat./-" but it didnt work for me
 METHOD: cat ./'-' worked
 
+### **Steps I Took**  
+
+1. I saw some recommendations to use:  
+   ```sh
+   cat ./-
+   ```  
+   But that **didn’t work** for me.  
+
+2. After trying different variations, what actually worked was:  
+   ```sh
+   cat ./'-'
+   ```  
+
+Lesson learned—sometimes small syntax differences matter!
 
 LEVEL 2 PASSWORD
 263JGJPfgU6LtdEvgfWU1XP5yac29mFx

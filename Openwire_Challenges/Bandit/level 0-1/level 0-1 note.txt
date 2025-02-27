@@ -10,5 +10,19 @@ STEPS
 ls - to list files in the directory
 cat readme - to read contents of the readme file
 
+### **Steps I Took**  
+
+1. First, I needed to see what files were in the directory, so I ran:  
+   ```sh
+   ls
+   ```  
+2. Saw a file named **readme** and wanted to check what was inside, so I used:  
+   ```sh
+   cat readme
+   ```  
+
+That was it—simple but effective!
+
+
 LEVEL 1 PASSWORD
 ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

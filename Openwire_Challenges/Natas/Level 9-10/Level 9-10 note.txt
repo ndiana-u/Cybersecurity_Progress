@@ -10,6 +10,6 @@ STEPS TO SOLVE IT
 - The command I ran to get my password- $ cat /etc/natas_webpass/natas11
 
 
-
 LEVEL 11 PASSWORD
 UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+

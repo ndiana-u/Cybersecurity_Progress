@@ -14,5 +14,24 @@ STEPS
 diff passwords.old passwords.new :list the lines that are different between the files.
 The second line from the passwords.new file is the password we need.
 
+### **Steps I Took**  
+
+1. **Compared the two files to find differences:**  
+   ```sh
+   diff passwords.old passwords.new
+   ```  
+   - This command **lists the lines that are different** between the two files.  
+
+2. **Identified the correct password** from `passwords.new`.  
+   - The **second line** in `passwords.new` is the one needed.  
+
+---
+
+### **Skill Learned**  
+- **Using `diff` to compare files** and spot changes.  
+
+### **Thoughts**  
+Simple but useful—`diff` makes it easy to track modifications between two files!
+
 LEVEL 18 PASSWORD
  x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO

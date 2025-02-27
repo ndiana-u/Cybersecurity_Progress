@@ -34,5 +34,43 @@ where your code is hosted, like GitHub).
 16. Input password which is the same as bandit31 password.
 After pushing the key.txt file the level 32 password was displayed.
 
+Here’s the refined version with skills learned included at the end:  
+
+---
+
+Logged into **bandit31** and set up a temporary directory with `mktemp -d`. Moved into it and cloned the Git repository with:  
+```bash
+git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+```  
+Used the same password as **bandit31**, then navigated into the repo and listed its contents. The `README.md` contained instructions: create a file named **key.txt** with the content **"May I come in?"** and push it to the master branch.  
+
+Created the file:  
+```bash
+echo 'May I come in?' > key.txt
+```  
+Checked the directory, and the file was there, but there was a **.gitignore** file. Opened it and saw it was set to ignore **all .txt files**. That was a problem since Git wouldn’t track **key.txt**.  
+
+To fix this, deleted `.gitignore`:  
+```bash
+rm .gitignore
+```  
+Then staged, committed, and pushed the file:  
+```bash
+git add .
+git commit -m 'Added key.txt as required'
+git push origin master
+```  
+Entered the password again, and just like that, the **level 32 password appeared**.  
+
+### **Skills Learned**  
+- **Git Basics** – Cloning repositories, checking contents, and working with branches.  
+- **Handling .gitignore** – Understanding how ignored files affect Git tracking and how to bypass it.  
+- **Staging & Committing** – Adding, committing, and pushing files to a remote repository.  
+- **Troubleshooting Git Issues** – Identifying and resolving conflicts with ignored files.  
+
+---
+
+This keeps it structured yet natural. Let me know if you'd like any refinements!
+git 
 LEVEL 32 PASSWORD
 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K

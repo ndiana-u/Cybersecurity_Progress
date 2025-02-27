@@ -11,5 +11,24 @@ ssh, telnet, nc, openssl, s_client, nmap
 format: echo "Your text here" | nc localhost port_number
 command: echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
 
+### **Steps I Took**  
+
+1. **Used `echo` to send text via netcat** following the required format:  
+   ```sh
+   echo "Your text here" | nc localhost port_number
+   ```  
+2. **Ran the actual command** with the provided password and port:  
+   ```sh
+   echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
+   ```  
+
+---
+
+### **Skill Learned**  
+- **Basic netcat usage** for sending data to a specific port.  
+
+### **Thoughts**  
+First time using `nc` this way—pretty straightforward for simple communication!
+
 # LEVEL 15 PASSWORD
 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo

@@ -26,5 +26,54 @@ cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 
 5. cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv :to get the password
 
+Got it! Here's your **personalized** version, reflecting your process and thoughts:  
+
+---
+
+### **STEPS**  
+I started by checking the **cron jobs** running on the system, since they could give me access to the password.  
+
+#### **1. Locate the cron job file**  
+```bash
+cd /etc/cron.d
+ls -l
+cat cronjob_bandit22
+```  
+From the output, I saw that **bandit22** had a scheduled cron job running every minute:  
+```bash
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+```
+This told me that the script `/usr/bin/cronjob_bandit22.sh` was executing regularly.  
+
+---
+
+#### **2. Check what the script does**  
+```bash
+cat /usr/bin/cronjob_bandit22.sh
+```
+The script contained these two lines:  
+```bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+```
+At this point, I realized the script was **copying the password** into a temporary file and making it readable. That meant I didn’t need to do anything fancy—just wait for the cron job to run and check the file.
+
+---
+
+#### **3. Read the password from the temporary file**  
+```bash
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+```
+And there it was—the password!  
+
+---
+
+### **WHAT I LEARNED**  
+✔ **How cron jobs work** and how they execute scheduled commands.  
+✔ **Reading scripts to find security weaknesses.**  
+✔ **Leveraging automated tasks to extract information.**  
+This was a cool challenge because it showed how **misconfigured scripts** can expose sensitive data.
+
 LEVEL 22 PASSWORD
 tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q

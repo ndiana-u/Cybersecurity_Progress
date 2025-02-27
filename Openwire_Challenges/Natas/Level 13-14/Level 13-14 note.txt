@@ -1,0 +1,27 @@
+LOGIN DETAILS
+Username: natas14
+password: z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ
+URL:      http://natas14.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- I went through the source code and I found out that the user input was included in the query without sanitization. SQL Injection was possible.
+- I inputted ' into the username, left the password field blank and then submitted the request. I intercepted the request with burp proxy. 
+- At the top of the request next to POST the page being loaded "index.php" was there.
+- I added ?debug=true so I could view the sql query being executed. It became "index.php?debug=true"
+- I then forwarded the request.
+- This is what showed on the natas14 web page:
+Executing query: SELECT * from users where username=" ' " and password=""
+- I had to change from single colon to double colons since that is what they query used.
+- I tried inputting " OR "1"="1 into the username but it didn't work. This because the AND of the password has a higher priority than OR.
+- I inputted this instead in the username field: " OR 1=1 OR "1"="1 and it worked. I left the password field blank.
+- I intercepted the request with burp proxy and added ?debug=true so I could see the sql query. After forwarding the request, I got the query 
+and natas 15 password. This was the sql query executed:
+Executing query: SELECT * from users where username="" OR 1=1 OR "1"="1" and password=""
+
+LEVEL 15 PASSWORD
+SdqIqBsFcz3yotlNYErZSZwblkm0lrvx
+
+
+
+

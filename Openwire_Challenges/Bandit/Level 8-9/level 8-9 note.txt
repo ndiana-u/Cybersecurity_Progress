@@ -10,6 +10,23 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 # STEPS
 command: sort data.txt | uniq -c | grep -w 1
 
+### **Steps I Took**  
+
+1. Sorted the contents of `data.txt` to group identical lines together:  
+   ```sh
+   sort data.txt
+   ```  
+2. Used `uniq -c` to count occurrences of each unique line:  
+   ```sh
+   sort data.txt | uniq -c
+   ```  
+3. Filtered the result to find the line that appears **only once** (`-w 1` ensures an exact match):  
+   ```sh
+   sort data.txt | uniq -c | grep -w 1
+   ```  
+
+This helped me quickly find the unique entry in the file!
+
 # EXPLANATION
 sort data.txt: Sorts the lines in data.txt.
 uniq -c: Counts the occurrences of each line after sorting. The -c option prefixes each line with the number of times it appears.

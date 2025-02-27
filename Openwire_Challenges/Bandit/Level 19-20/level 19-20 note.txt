@@ -17,6 +17,38 @@ if the file has a permission -rwsr. The s there indicates that the setuid bit is
 It printed a usage instruction which was to run a command as another user.
 ./bandit20-do cat /etc/bandit_pass/bandit20 : to get the password follow the instruction.
 
+### **Steps I Took**  
+
+1. **Changed to the home directory:**  
+   ```sh
+   cd ~
+   ```  
+
+2. **Listed files with detailed permissions:**  
+   ```sh
+   ls -l
+   ```  
+   - Looked for a file with `-rwsr-x---` permissions.  
+   - The **`s`** in the permissions means the **SetUID bit** is enabled, allowing execution as the file’s owner.  
+
+3. **Ran the binary to check its usage:**  
+   ```sh
+   ./bandit20-do
+   ```  
+   - It displayed a **usage instruction** for running a command as another user.  
+
+4. **Used the binary to read the next password:**  
+   ```sh
+   ./bandit20-do cat /etc/bandit_pass/bandit20
+   ```  
+
+---
+
+### **Skill Learned**  
+- **Understanding SetUID binaries** and how they let you execute commands with elevated privileges.  
+
+### **Thoughts**  
+Seeing how **SetUID works in practice** was interesting—it’s a small but powerful privilege escalation trick!
 
 LEVEL 20 PASSWORD
 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO

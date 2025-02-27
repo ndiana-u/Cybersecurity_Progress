@@ -5,9 +5,9 @@ URL:      http://natas9.natas.labs.overthewire.org
 
 
 STEPS TO SOLVE IT
-- i went through the source code and I realized that the input was being executed without any form of sanitization.
-- this means that I could do command injection.
-- When I added a semicolon before running a command it would break out of grep in the passthru function and execute whatever is after the 
+- I went through the source code and I realized that the input was being executed without any form of sanitization.
+- This meant that I could do command injection.
+- When I added a semicolon before running a command it broke out of grep in the passthru function and executed whatever was after the 
 semi-colon.
 - I ran ; ls-la; first and all the directories and files contained in natas 9 showed.
 - I ran this command and got the password:  ; cat /etc/natas_webpass/natas10;

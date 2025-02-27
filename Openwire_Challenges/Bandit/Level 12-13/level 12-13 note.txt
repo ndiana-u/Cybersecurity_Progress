@@ -36,6 +36,83 @@ tell we get the password file.
 3. decompress file using appropriate command
 - cat data8: To read the content of the original password file, data8.
 
+### **Steps I Took**  
+
+1. Created a temporary directory to work in:  
+   ```sh
+   mktemp -d
+   ```  
+2. Changed into the newly created temp directory:  
+   ```sh
+   cd /tmp/tmp.ROOoXAjUur
+   ```  
+3. Copied `data.txt` into the directory:  
+   ```sh
+   cp ~/data.txt .
+   ```  
+4. Renamed the file, since it wasn’t actually a text file:  
+   ```sh
+   mv data.txt data
+   ```  
+5. Converted the **hex dump** file into its binary equivalent:  
+   ```sh
+   xxd -r data > binary
+   ```  
+6. Checked the file type:  
+   ```sh
+   file binary
+   ```  
+   - It was **gzip-compressed**.  
+
+7. Renamed it to have the correct `.gz` extension:  
+   ```sh
+   mv binary binary.gz
+   ```  
+8. Decompressed it using `gunzip`:  
+   ```sh
+   gunzip binary.gz
+   ```  
+9. Checked the file type again:  
+   ```sh
+   file binary
+   ```  
+   - Now it was **bzip2-compressed**.  
+
+10. Decompressed it using `bunzip2`:  
+    ```sh
+    bunzip2 binary
+    ```  
+11. Checked the file again:  
+    ```sh
+    file binary.out
+    ```  
+    - It was **gzip-compressed again**.  
+
+12. Repeated the decompression steps (renaming when necessary) until I reached a **tar archive**.  
+13. Extracted the tar file:  
+    ```sh
+    tar -xf binary
+    ```  
+14. Since the file had been **recursively compressed using gzip, bzip2, and tar**, I kept repeating the process:  
+    1. `ls` to check files  
+    2. `file filename` to identify the compression type  
+    3. Used the appropriate decompression command (`gunzip`, `bunzip2`, `tar -xf`)  
+
+15. Eventually, I got to the final **password file**, named `data8`:  
+    ```sh
+    cat data8
+    ```  
+
+---
+
+### **Struggles & What I Learned**  
+
+- The file was **compressed multiple times** in different formats, so I had to carefully check each step.  
+- Using `file` at every stage helped me **identify the right decompression command** to use.  
+- The trick was to **rename files when necessary** (especially for gzip) to avoid errors.  
+- After repeating the process several times, I finally reached the password file!  
+
+A fun but tedious challenge—felt like unwrapping layers of a mystery package! 😅
 
 # LEVEL 13 PASSWORD
  FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn

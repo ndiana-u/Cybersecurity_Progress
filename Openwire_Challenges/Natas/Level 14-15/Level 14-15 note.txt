@@ -1,0 +1,38 @@
+LOGIN DETAILS
+Username: natas15
+password: SdqIqBsFcz3yotlNYErZSZwblkm0lrvx
+URL:      http://natas15.natas.labs.overthewire.org
+
+
+STEPS TO SOLVE IT
+- I inputted " into the username field and intercepted the request using Burp proxy.
+- I added ?debug=true to the index.php at the top of the request in Burp proxy. This is so I could see the sql query being executed.
+- I sent the request to Burp repeater so I could edit the request mutliple times.
+- Then I forwarded the request and put off the intercept-button.
+- I went back to Burp repeater and sent the request. I noticed that an error was gotten. This means the username field is susceptible to 
+SQL Injection.
+- Still in Burp repeater, in the username field I put natas16 and the user existed.
+- When I studied the source code I discovered that if the username is valid, it responds with "the user exist" and if not "This user doesnt 
+exist".
+- The password isn't reflected in the response but the password is stored in the database. This means I had to use Blind SQL 
+injection. I had to brute-force the password a character at a time. When I got the correct character, the output was "This user exists"
+- Sent the request in Burp repeater to Burp Intruder.
+- At the position tab, I inputted this in the username field: natas16"+AND+BINARY+SUBSTRING(password,+1,+1)+=+"a
+* SUBSTRING(password,+1,+1): The first '1' stands for the position of the character. In this case it's the first postion. The second '1' stands
+for the number of characters checked at a time. In this case it's just 1.
+- Highlighted the 'a' at the end of the username field and clicked on 'add §§'. The username field became:
+natas16"+AND+BINARY+SUBSTRING(password,+1,+1)+=+"§a§
+- In the payload tab, under 'payload setting', I inputted all alphanumeric characters one at a time. My payload count was 62.
+- Under the 'setting' tab I went to 'grep -match'. I cleared the existing list and inputted "This user exists". This response was my cue that
+I had gotten the right password character.
+- Then I started the attack.
+- Under the field "This user exists", a '1' showed next to the correct password character and I jotted it down.
+- After each attack I went back to the 'position' tab and increased the postion in the username field by 1. It became:
+natas16"+AND+BINARY+SUBSTRING(password,+2,+1)+=+"§a§ for the second password character. I did this till position 32 since the password 
+consisted of 32 characters. 
+- The password for natas 16 I got was: hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
+
+LEVEL 16 PASSWORD
+hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
+
+

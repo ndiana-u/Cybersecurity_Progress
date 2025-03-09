@@ -10,52 +10,33 @@ not executable
 # COMMANDS YOU MIGHT NEED: 
 ls , cd , cat , file , du , find
 
-# STEPS
-ls = to list the files or directories.
-cd inhere = change directory to inhere
-du -b -a = to list the byte size of all the files in the directory 
-find -size 1033c = to get the file with size 1033
-cat /.maybehere07/.file2 = To view the content of file2.
 
-# STRUGGLES
-I tried du -h to get the sizes in readable form but they were all kilobytes
-I tried du -b to get the sizes in bytes. They were really large.
-When i tried du -b -a. It listed each file and their sizes. I noticed the 'maybehere' were directories that contained other files and the '-a' command listed the size of each of them. I just checked for a file which size was 1033 bytes.
  
- ### **Steps I Took**  
-
+ STEPS I TOOK 
 1. Listed the files and directories to see what was inside:  
-   ```sh
    ls
-   ```  
-2. Changed into the **inhere** directory:  
-   ```sh
+
+2. Changed into the "inhere" directory:  
    cd inhere
-   ```  
+  
 3. Tried to check file sizes in bytes for all files:  
-   ```sh
    du -b -a
-   ```  
-4. Used `find` to locate the file with **1033 bytes**:  
-   ```sh
+  
+4. Used "find" to locate the file with "1033 bytes":  
    find . -size 1033c
-   ```  
+ 
 5. Once I found the file, I opened it with:  
-   ```sh
    cat /.maybehere07/.file2
-   ```  
 
----
+# MY STRUGGLES AND WHAT I LEARNED  
+- First tried "du -h" for a readable format, but it only showed kilobytes—not exact byte sizes.  
+- Then used "du -b", but the values were too large and not what I needed.  
+- Finally, "du -b -a" worked since it listed each file and their sizes, including hidden ones in directories.  
+- Realized that "maybehere" directories had more files inside, and "-a" helped display all of them.  
+- Once I found the file with "1033 bytes", I just "cat"-ed it to see the content.  
 
-### **Struggles & What I Learned**  
+Figuring out file sizes took a bit of trial and error, but "du -b -a" + "find" saved the day!
 
-- First tried `du -h` for a readable format, but it only showed kilobytes—not exact byte sizes.  
-- Then used `du -b`, but the values were too large and not what I needed.  
-- Finally, `du -b -a` worked since it listed each file and their sizes, including hidden ones in directories.  
-- Realized that **'maybehere'** directories had more files inside, and `-a` helped display all of them.  
-- Once I found the file with **1033 bytes**, I just `cat`-ed it to see the content.  
-
-Figuring out file sizes took a bit of trial and error, but `du -b -a` + `find` saved the day!
 
 # LEVEL 6 PASSWORD
 HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

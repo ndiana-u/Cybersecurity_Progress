@@ -1,43 +1,31 @@
 # LOGIN
 ssh bandit4@bandit.labs.overthewire.org -p 2220
 
-DESCRIPTION
-The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
-
-STEPS
-ls = to see the list of directory
-cd = to change the directory to 'inhere'
-ls -l = to list all files
-find . -type f -exec file {} + | grep 'text'   = to find human readable file
-cat ./-file07  = to read the contents of the file
-
-### **Steps I Took**  
-
-1. Listed the directories to see what was inside:  
-   ```sh
-   ls
-   ```  
-2. Changed into the **inhere** directory:  
-   ```sh
-   cd inhere
-   ```  
-3. Listed all files with details:  
-   ```sh
-   ls -l
-   ```  
-4. Needed to find a human-readable file, so I used:  
-   ```sh
-   find . -type f -exec file {} + | grep 'text'
-   ```  
-5. Once I found the right file (**-file07**), I read its contents with:  
-   ```sh
-   cat ./-file07
-   ```  
-
-Finding the right file took some work, but `find` + `file` made it easier!
+# DESCRIPTION
+The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the 
+“reset” command.
 
 COMMANDS YOU MIGHT NEED: 
 ls , cd , cat , file , du , find
+
+# STEPS I TOOK  
+1. Listed the directories to see what was inside:  
+  ls
+  
+2. Changed into the "inhere" directory:  
+   cd inhere
+
+3. Listed all files with details:  
+   ls -l
+  
+4. Needed to find a human-readable file, so I used:  
+   find . -type f -exec file {} + | grep 'text'
+ 
+5. Once I found the right file ("-file07"), I read its contents with:  
+   cat ./-file07 
+
+Finding the right file took some work, but "find" + "file" made it easier!
+
 
 LEVEL 5 PASSWORD
 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

@@ -10,28 +10,18 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 COMMANDS YOU MAY NEED:
 cat, grep, ls, diff
 
-STEPS
-diff passwords.old passwords.new :list the lines that are different between the files.
-The second line from the passwords.new file is the password we need.
 
-### **Steps I Took**  
+STEPS I TOOK
+1. Compared the two files to find differences:  
+   diff passwords.old passwords.new  
+   - This command lists the lines that are different between the two files.  
 
-1. **Compared the two files to find differences:**  
-   ```sh
-   diff passwords.old passwords.new
-   ```  
-   - This command **lists the lines that are different** between the two files.  
+2. Identified the correct password from "passwords.new".  
+   - The second line in "passwords.new" is the one needed.  
 
-2. **Identified the correct password** from `passwords.new`.  
-   - The **second line** in `passwords.new` is the one needed.  
+# SKILL LEARNT
+- Using "diff" to compare files and spot changes.  
 
----
-
-### **Skill Learned**  
-- **Using `diff` to compare files** and spot changes.  
-
-### **Thoughts**  
-Simple but useful—`diff` makes it easy to track modifications between two files!
 
 LEVEL 18 PASSWORD
  x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO

@@ -10,77 +10,46 @@ Clone the repository and find the password for the next level.
 COMMANDS YOU MAY NEED:
 git
 
-STEPS
-1. log in to bandit30
-2. mktemp -d : to create a temporary directory
-3. cd /tmp/'tmp-directory': to change to that temporary directory
-4. git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo : to clone the repository
-5. Input the password which is the same as bandit30 password
-6. cd repo : change to the repo directory
-7. ls -l : to list files/directories
-8. cat README.md : to read the content of the file.
-It was an empty file.
-9. git tag : to see all tags in the repository
-10. git show 'tag-name' : to view details of that specific tag
 
-Got it! Here’s the version with the previous skills format while keeping it personal.  
-
----
-
-### **STEPS (Bandit30 – My Solution)**  
-
-1. **Logged into bandit30** using SSH.  
-2. **Created a temporary directory** to keep things organized:  
-   ```bash
+# STEPS I TOOK  
+1. Logged into bandit30 using SSH.  
+2. Created a temporary directory to keep things organized:  
    mktemp -d
-   ```  
-3. **Moved into the new directory:**  
-   ```bash
+
+3. Moved into the new directory:  
    cd /tmp/'tmp-directory'
-   ```  
-4. **Cloned the Git repository:**  
-   ```bash
+
+4. Cloned the Git repository:  
    git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo
-   ```  
+
    - Entered the bandit30 password when prompted.  
 
-5. **Switched into the repo folder:**  
-   ```bash
+5. Switched into the repo folder:  
    cd repo
-   ```  
-6. **Listed the files inside:**  
-   ```bash
+
+6. Listed the files inside:  
    ls -l
-   ```  
-7. **Checked the README.md file for clues:**  
-   ```bash
+
+7. Checked the README.md file for clues:  
    cat README.md
-   ```  
+
    - It was completely empty. No password. No hints. Just blank.  
    - I knew there had to be something hidden elsewhere in the repo.  
 
-8. **Looked for Git tags:**  
-   ```bash
+8. Looked for Git tags:  
    git tag
-   ```  
    - Saw a tag listed. This seemed promising.  
 
-9. **Examined the tag’s contents:**  
-   ```bash
+9. Examined the tag’s contents:  
    git show 'tag-name'
-   ```  
-   - And there it was—the next level password! 🔥  
+   - And there it was—the next level password! 
 
----
+# SKILLS LEARNT  
+- Git Repository Exploration – Learned how to search beyond just files.  
+- Git Tags – Found out how tags store important data.  
+- Problem-Solving – When the README was empty, I had to think of alternative ways to find the password.  
+- Efficient Terminal Navigation – Used temporary directories to stay organized.  
 
-### **Skills Learnt**  
-
-- **Git Repository Exploration** – Learned how to search beyond just files.  
-- **Git Tags** – Found out how tags store important data.  
-- **Problem-Solving** – When the README was empty, I had to think of alternative ways to find the password.  
-- **Efficient Terminal Navigation** – Used temporary directories to stay organized.  
-
-Another level cracked. On to the next! 🚀
 
 LEVEL 31 PASSWORD
 fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy

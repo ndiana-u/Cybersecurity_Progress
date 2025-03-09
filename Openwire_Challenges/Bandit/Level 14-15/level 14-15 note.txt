@@ -7,28 +7,16 @@ The password for the next level can be retrieved by submitting the password of t
 # COMMANDS YOU MAY NEED:
 ssh, telnet, nc, openssl, s_client, nmap
 
-# STEPS
-format: echo "Your text here" | nc localhost port_number
-command: echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
+# STEPS I TOOK 
+1. Used "echo" to send text via netcat following the required format: 
+   echo "Your text here" | nc localhost port_number 
 
-### **Steps I Took**  
+2. Ran the actual command with the provided password and port:  
+   echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000  
 
-1. **Used `echo` to send text via netcat** following the required format:  
-   ```sh
-   echo "Your text here" | nc localhost port_number
-   ```  
-2. **Ran the actual command** with the provided password and port:  
-   ```sh
-   echo "MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS" | nc localhost 30000
-   ```  
+# SKILLS LEARNT 
+- Basic netcat usage for sending data to a specific port.  
 
----
-
-### **Skill Learned**  
-- **Basic netcat usage** for sending data to a specific port.  
-
-### **Thoughts**  
-First time using `nc` this way—pretty straightforward for simple communication!
 
 # LEVEL 15 PASSWORD
 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo

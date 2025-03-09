@@ -1,28 +1,17 @@
 # LOGIN
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 
-DESCRIPTION
-The password for the next level is stored in a file called readme located in the home directory.
- Use this password to log into bandit1 using SSH.
+# DESCRIPTION
+The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH.
 
-
-STEPS
-ls - to list files in the directory
-cat readme - to read contents of the readme file
-
-### **Steps I Took**  
-
+# STEPS I TOOK
 1. First, I needed to see what files were in the directory, so I ran:  
-   ```sh
-   ls
-   ```  
-2. Saw a file named **readme** and wanted to check what was inside, so I used:  
-   ```sh
-   cat readme
-   ```  
+   ls 
+2. Saw a file named "readme" and wanted to check what was inside, so I used:  
+   cat readme 
 
-That was it—simple but effective!
+That was it!
 
 
-LEVEL 1 PASSWORD
+# LEVEL 1 PASSWORD
 ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

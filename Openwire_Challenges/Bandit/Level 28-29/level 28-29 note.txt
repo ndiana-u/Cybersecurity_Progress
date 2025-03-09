@@ -10,72 +10,41 @@ Clone the repository and find the password for the next level
 COMMANDS YOU MAY NEED: 
 git
 
-STEPS
-1. log in to bandit28
-2. mktemp -d : to create a temporary directory
-3. cd /tmp/'tmp-directory': to change to that temporary directory
-4. git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo : to clone the repository
-5. Input the password which is the same as bandit28 password
-6. cd repo : change to the repo directory
-7. ls -l : to list files/directories
-8. cat README.md : to read the content of the file.
-9. The password was not provided. 
-10. git log: to examine commit history.
-11. One of the commits message was 'add missing data'. I guessed it had to be the password.
-12. git show <commit-hash> : to see the changes made during that particular commit.
-The password was there.
 
-This level introduced **Git commit history analysis**, a crucial skill for **code review and security research**.  
+# STEPS I TOOK  
+This level introduced Git commit history analysis, a crucial skill for code review and security research.
 
----
+1. Logged into bandit28.  
 
-### **STEPS**  
-
-1️⃣ **Logged into bandit28.**  
-
-2️⃣ **Created a temporary directory to work in:**  
-   ```bash
+2. Created a temporary directory to work in:  
    mktemp -d
-   cd /tmp/'tmp-directory'
-   ```  
+   cd /tmp/'tmp-directory' 
 
-3️⃣ **Cloned the Git repository using SSH:**  
-   ```bash
-   git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
-   ```  
-   - Entered the **bandit28 password** when prompted.  
+3. Cloned the Git repository using SSH:  
+   git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo 
+   - Entered the bandit28 password when prompted.  
    - The repository was successfully downloaded.  
 
-4️⃣ **Navigated into the cloned repo and listed its contents:**  
-   ```bash
+4. Navigated into the cloned repo and listed its contents:  
    cd repo
-   ls -l
-   ```  
+   ls -l 
 
-5️⃣ **Checked the README file for the password:**  
-   ```bash
-   cat README.md
-   ```  
+5. Checked the README file for the password:  
+   cat README.md 
    - No password was provided.  
 
-6️⃣ **Examined the commit history to look for clues:**  
-   ```bash
-   git log
-   ```  
-   - One commit message stood out: **"add missing data"**—which likely contained the password.  
+6. Examined the commit history to look for clues:  
+   git log 
+   - One commit message stood out: "add missing data"—which likely contained the password.  
 
-7️⃣ **Checked the details of that commit:**  
-   ```bash
-   git show <commit-hash>
-   ```  
-   - The commit diff showed **the password for bandit29** in the changes.  
+7. Checked the details of that commit:  
+   git show <commit-hash> 
+   - The commit diff showed the password for bandit29 in the changes.  
 
----
-
-### **Key Takeaways**  
-✅ **Using `git log` to track commit history.**  
-✅ **Using `git show` to inspect changes in specific commits.**  
-✅ **Understanding how version control can expose sensitive data.** 🚀
+# SKILLS LEARNT  
+- Using "git log" to track commit history.  
+- Using "git show" to inspect changes in specific commits.  
+- Understanding how version control can expose sensitive data. 
 
 LEVEL 29 PASSWORD
 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7

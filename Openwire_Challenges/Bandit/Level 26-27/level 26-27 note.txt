@@ -8,36 +8,22 @@ Good job getting a shell! Now hurry and grab the password for bandit27!
 COMMANDS YOU MAY NEED:
 ls
 
-STEPS
-1. ls -l : to list all files and directories.
-I noticed that the setuid binary bit 's' was set for a file 'bandit27-do'
-2. ./bandit27-do cat /etc/bandit_pass/bandit27 : to execute the file and get the password alongside.
+# STEPS I TOOK
+This level was quick but insightful—it reinforced how setuid binaries can be used to execute commands with elevated privileges.  
 
-This level was **quick but insightful**—it reinforced how **setuid binaries** can be used to execute commands with elevated privileges.  
+1. Listed the files to see if anything stood out:  
+   ls -l  
+   - I noticed that the "bandit27-do" file had the setuid ("s") permission set.  
+   - This meant it could execute commands as bandit27!  
 
----
+2. Used the setuid binary to read the next password:  
+   ./bandit27-do cat /etc/bandit_pass/bandit27  
+   - The command ran with bandit27’s privileges and printed the password.  
 
-### **STEPS**  
-
-1️⃣ **Listed the files to see if anything stood out:**  
-   ```bash
-   ls -l
-   ```  
-   - I noticed that the **`bandit27-do`** file had the **setuid (`s`) permission** set.  
-   - This meant it could **execute commands as bandit27!**  
-
-2️⃣ **Used the setuid binary to read the next password:**  
-   ```bash
-   ./bandit27-do cat /etc/bandit_pass/bandit27
-   ```  
-   - The command **ran with bandit27’s privileges** and printed the password.  
-
----
-
-### **Key Takeaways**  
-✅ **Setuid binaries can execute commands as another user.**  
-✅ **Identifying and leveraging these files is a common privilege escalation method.**  
-✅ **Simple but effective—just one command got me to the next level!** 🚀
+# SKILLS LEARNT 
+- Setuid binaries can execute commands as another user.  
+- Identifying and leveraging these files is a common privilege escalation method.  
+- Simple but effective—just one command got me to the next level! 🚀
 
 LEVEL 27 PASSWORD
 upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB

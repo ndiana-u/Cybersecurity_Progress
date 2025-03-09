@@ -7,23 +7,16 @@ The password for the next level is stored in the file data.txt and is the only l
 # COMMANDS NEEDED MAYBE:
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-# STEPS
-command: sort data.txt | uniq -c | grep -w 1
-
-### **Steps I Took**  
-
-1. Sorted the contents of `data.txt` to group identical lines together:  
-   ```sh
+STEPS I TOOK
+1. Sorted the contents of "data.txt" to group identical lines together:  
    sort data.txt
-   ```  
-2. Used `uniq -c` to count occurrences of each unique line:  
-   ```sh
+    
+2. Used "uniq -c" to count occurrences of each unique line:  
    sort data.txt | uniq -c
-   ```  
-3. Filtered the result to find the line that appears **only once** (`-w 1` ensures an exact match):  
-   ```sh
+    
+3. Filtered the result to find the line that appears only once ("-w 1" ensures an exact match):  
    sort data.txt | uniq -c | grep -w 1
-   ```  
+    
 
 This helped me quickly find the unique entry in the file!
 

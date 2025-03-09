@@ -20,95 +20,58 @@ STEPS
 I replaced the '$myname' in the command to bandit23 which is the level password, I'm looking for.
 6.  cat /tmp/8ca319486bfbbc3663ea0fbe81326349 : to get the content of the file which is the password for level 23.
 
-### **STEPS**  
-This level was all about **figuring out how a cron job stores the password dynamically**. I had to **reverse-engineer** the script to find where the password was being saved.
+# STEPS I TOOK 
+This level was all about figuring out how a cron job stores the password dynamically. I had to reverse-engineer the script to find where the 
+password was being saved.
 
----
-
-#### **1. Find the cron job**  
+ 1. Find the cron job  
 The first thing I did was check the cron job directory:  
-```bash
 cd /etc/cron.d
 ls -l
 cat cronjob_bandit23
-```
 Inside, I saw:  
-```bash
 * * * * * bandit23 /usr/bin/cronjob_bandit23.sh &> /dev/null
-```
-This meant the script `/usr/bin/cronjob_bandit23.sh` was executing **every minute**.
+This meant the script "/usr/bin/cronjob_bandit23.sh" was executing every minute.
 
----
-
-#### **2. Read the script to see what it does**  
-```bash
+ 2. Read the script to see what it does  
 cat /usr/bin/cronjob_bandit23.sh
-```
 Here’s what I found inside:  
-```bash
 myname=$(whoami)
 mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
 echo "Copying password file" > /tmp/$mytarget
 cat /etc/bandit_pass/bandit23 > /tmp/$mytarget
-```
 This was interesting.  
-- `$myname=$(whoami)` gets the current username, which is **bandit23**.  
-- `$mytarget` hashes the phrase **"I am user bandit23"** using `md5sum`, then extracts only the hash.  
-- The script **copies the password** to `/tmp/$mytarget`.  
+- "$myname=$(whoami)" gets the current username, which is bandit23.  
+- "$mytarget" hashes the phrase "I am user bandit23" using "md5sum", then extracts only the hash.  
+- The script copies the password to "/tmp/$mytarget".  
 
----
-
-#### **3. Manually generate the filename**  
-I needed to **reproduce the filename** myself:  
-```bash
+ 3. Manually generate the filename  
+I needed to reproduce the filename myself:  
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1
-```
 This gave me:  
-```bash
 8ca319486bfbbc3663ea0fbe81326349
-```
 Now I knew exactly where the password was being stored!
 
----
-
-#### **4. Retrieve the password**  
+ 4. Retrieve the password  
 With the hash in hand, I simply checked the file:  
-```bash
 cat /tmp/8ca319486bfbbc3663ea0fbe81326349
-```
-And boom! There it was—the password for **level 23**.
+And boom! There it was—the password for level 23.
 
----
+# SKILL LEARNT  
+- How cron jobs execute scripts on a schedule  
+- How to analyze scripts that generate dynamic filenames  
+- How weak predictable hashes can be exploited  
 
-### **WHAT I LEARNED**  
-✔ **How cron jobs execute scripts on a schedule**  
-✔ **How to analyze scripts that generate dynamic filenames**  
-✔ **How weak predictable hashes can be exploited**  
-
-This one was really satisfying because I had to **think like the script** to figure out where the password was being stored. I love these kinds of logical challenges!
+This one was really satisfying because I had to think like the script to figure out where the password was being stored. I love these kinds
+ of logical challenges!
 
 LEVEL 23 PASSWORD
 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 
-COMMAND EXPLANATION(echo I am user bandit23 | md5sum | cut -d '' -f 1)
-1. `echo I am user bandit23`
-This command outputs the string `I am user bandit23` to the standard output (terminal).
-2. `| md5sum`
-The `md5sum` command calculates the MD5 hash of the input text. In this case, it takes the string `"I am user bandit23"` and converts it into
-a unique 32-character hexadecimal hash. MD5 is a cryptographic hash function used for creating checksums.
-3. `| cut -d ' ' -f 1`
-The `cut` command is used to split the output into fields based on a delimiter. The `-d ' '` part tells `cut` to use a space as the delimiter,
-and `-f 1` specifies that only the first field (which is the hash in this case) should be printed.
+# COMMAND EXPLANATION ("echo I am user bandit23 | md5sum | cut -d ' ' -f 1")  
+- "echo I am user bandit23" → Prints the text ""I am user bandit23"".  
+- "| md5sum" → Hashes that text using MD5, giving a unique string.  
+- "| cut -d ' ' -f 1" → Extracts only the hash by cutting out the extra space and "-" from the output.  
 
-Got it! Here's a more **personalized and straightforward** explanation of the command **you used** while solving the challenge:  
-
----
-
-### **COMMAND EXPLANATION (`echo I am user bandit23 | md5sum | cut -d ' ' -f 1`)**  
-
-1️⃣ **`echo I am user bandit23`** → Prints the text `"I am user bandit23"`.  
-2️⃣ **`| md5sum`** → Hashes that text using MD5, giving a unique string.  
-3️⃣ **`| cut -d ' ' -f 1`** → Extracts only the hash by cutting out the extra space and `-` from the output.  
-
-This command helped me **figure out the exact filename** where the password was stored. Once I got the hash, I simply **checked the `/tmp/` 
-directory** for a file with that name and found the password inside.
+This command helped me figure out the exact filename where the password was stored. Once I got the hash, I simply checked the "/tmp/" 
+directory for a file with that name and found the password inside.

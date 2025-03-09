@@ -7,21 +7,13 @@ The password for the next level is stored in the file data.txt, where all lowerc
 # COMMANDS NEEDED MAYBE: 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-# STEPS
-command: tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
-
-Got it! Here’s the updated version:  
-
-### **Steps I Took**  
-
-1. The challenge description mentioned the text was **ROT13 encoded**.  
-2. Used the `tr` command to decode it by shifting letters 13 places:  
-   ```sh
+STEPS I TOOK  
+1. The challenge description mentioned the text was "ROT13 encoded".  
+2. Used the "tr" command to decode it by shifting letters 13 places:  
    tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
-   ```  
 3. This successfully revealed the decoded text!  
 
-Since ROT13 just shifts letters, `tr` was the perfect tool for the job.
+Since ROT13 just shifts letters, "tr" was the perfect tool for the job.
 
 # EXPLANATION
 'tr 'A-Za-z' 'N-ZA-Mn-za-m': This command tells tr to translate all uppercase and lowercase letters from their ROT13-encoded(rotated by 13 postions) counterparts back to their original positions.

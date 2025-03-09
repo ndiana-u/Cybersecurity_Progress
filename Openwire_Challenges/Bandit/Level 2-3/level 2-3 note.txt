@@ -2,28 +2,21 @@
 ssh bandit2@bandit.labs.overthewire.org -p 2220
 
 
-DESCRIPTION
+# DESCRIPTION
 The password for the next level
  is stored in a file called spaces in this filename located in the home directory
 
-SOLUTION
-ls - to list file in directory
-METHOD: cat ./'spaces in this filename'
 
-### **Solution**  
-
-1. Used `ls` to list the files in the directory:  
-   ```sh
+# STEPS I TOOK  
+1. Used "ls" to list the files in the directory:  
    ls
-   ```  
+
 2. Saw a file with spaces in its name. Tried different ways to read it, and what worked was:  
-   ```sh
-   cat ./'spaces in this filename'
-   ```  
+   cat ./'spaces in this filename' 
 
-Spacing in filenames can be tricky, but wrapping it in quotes did the job!
+Lesson Learned- wrapping filenames with spaces in quotes does the job.
 
-LEVEL 3 PASSWORD
+
+# LEVEL 3 PASSWORD
 MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 
-C:\Users\DAEMEK TECHNOLOGIES\Cybersecurity_Progress\Cybersecurity_Progress\Openwire_Challenges\Bandit\l

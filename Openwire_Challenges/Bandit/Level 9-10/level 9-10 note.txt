@@ -6,25 +6,14 @@ The password for the next level is stored in the file data.txt in one of the few
 COMMANDS NEEDED MAYBE:
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-STEPS
-command: grep -a === data.txt | strings
-when i used just grep i was told that was a binary file
-when i used: grep -a = data.txt , i got a lot of lines of texts that weew both strings and none strings.
-so i made the = sign 3 so that would remove the lines with single = sign and added the ' | strings' so only lines with strings would show.
-
-### **Steps I Took**  
-
-1. First tried using `grep` normally, but got an error saying the file was **binary**.  
-2. Used `grep -a = data.txt` to treat it as text, which worked but gave **too many mixed lines** (both readable and unreadable).  
-3. Adjusted the search by using `===` instead of `=` to filter out unwanted lines:  
-   ```sh
+STEPS I TOOK
+1. First tried using "grep" normally, but got an error saying the file was **binary**.  
+2. Used "grep -a = data.txt" to treat it as text, which worked but gave **too many mixed lines** (both readable and unreadable).  
+3. Adjusted the search by using "===" instead of "=" to filter out unwanted lines:  
    grep -a === data.txt
-   ```  
-4. Still had extra non-text lines, so I piped the output through `strings` to keep only readable text:  
-   ```sh
+4. Still had extra non-text lines, so I piped the output through "strings" to keep only readable text:  
    grep -a === data.txt | strings
-   ```  
-
+ 
 This method helped clean up the output and focus on useful text!
 
 LEVEL 10 PASSWORD

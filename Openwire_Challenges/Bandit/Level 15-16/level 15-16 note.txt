@@ -10,27 +10,14 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 # COMMANDS YOU MAY NEED:
 ssh, telnet, nc, ncat, socat, openssl, s_client, nmap, netstat, ss
 
-# STEPS
-After logging in;
-command: openssl s_client -connect localhost:30001
-Then type the previous password.
+# STEPS I TOOK
+1. Logged in to the server.  
+2. Connected to the specified port using OpenSSL:  
+   openssl s_client -connect localhost:30001  
+3. Entered the previous level’s password when prompted.  
 
-### **Steps I Took**  
-
-1. **Logged in to the server.**  
-2. **Connected to the specified port using OpenSSL:**  
-   ```sh
-   openssl s_client -connect localhost:30001
-   ```  
-3. **Entered the previous level’s password** when prompted.  
-
----
-
-### **Skill Learned**  
-- **Using OpenSSL to establish a secure connection** over TLS.  
-
-### **Thoughts**  
-First time using `openssl s_client`—felt like manually handling SSL/TLS communication!
+# SKILLS LEARNT  
+- Using OpenSSL to establish a secure connection over TLS.  
 
 # EXPLANATION
 You first establish a secure connection using openssl before sending or receiving data. Format: openssl s_client -connect remote_host:port

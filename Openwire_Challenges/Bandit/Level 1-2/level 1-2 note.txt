@@ -2,33 +2,27 @@
 ssh bandit1@bandit.labs.overthewire.org -p 2220
 
 
-DESCRIPTION
+# DESCRIPTION
 The password for the next level is stored in a file called - located in the home directory
 
-COMMANDS TO USE
+# COMMANDS TO USE
 ls, cd, cat, file, du, find
 
-STEPS
-some recommended "cat./-" but it didnt work for me
-METHOD: cat ./'-' worked
-
-### **Steps I Took**  
-
+# STEPS I TOOK 
 1. I saw some recommendations to use:  
-   ```sh
-   cat ./-
-   ```  
-   But that **didn’t work** for me.  
+   cat ./-  
+   But that didn’t work for me.  
 
 2. After trying different variations, what actually worked was:  
-   ```sh
-   cat ./'-'
-   ```  
+   cat ./'-' 
 
 Lesson learned—sometimes small syntax differences matter!
 
-LEVEL 2 PASSWORD
+
+# LEVEL 2 PASSWORD
 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
 
 
-#used ctrl + D to terminate a session without exit app.
+
+
+#used ctrl + D to terminate a session without exit terminal.

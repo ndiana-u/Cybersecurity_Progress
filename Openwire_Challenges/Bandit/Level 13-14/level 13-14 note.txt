@@ -9,33 +9,18 @@ the next password, but you get a private SSH key that can be used to log into th
 COMMANDS YOU MAY NEED: 
 ssh, telnet, nc, openssl, s_client, nmap
 
-STEPS
-* ssh -i /path/to/private_key username@remote_host = specifies a private key to use for authentication.
-ssh -i sshkey.private bandit14@localhost -p 2220
-Now logged in as bandit14 with private key
-cat /etc/bandit_pass/bandit14 = to get password for level 14
 
-### **Steps I Took**  
 
-1. **Used SSH with a private key** for authentication:  
-   ```sh
-   ssh -i /path/to/private_key username@remote_host
-   ```  
+STEPS I TOOK  
+1. Used SSH with a private key for authentication:  
+   ssh -i /path/to/private_key username@remote_host  
    - In my case, I used:  
-     ```sh
-     ssh -i sshkey.private bandit14@localhost -p 2220
-     ```  
-   - This logged me in as **bandit14**.  
+     ssh -i sshkey.private bandit14@localhost -p 2220  
+   - This logged me in as bandit14.  
 
-2. **Retrieved the password for the next level:**  
-   ```sh
-   cat /etc/bandit_pass/bandit14
-   ```  
+2. Retrieved the password for the next level:  
+   cat /etc/bandit_pass/bandit14  
 
----
-
-### **Thoughts**  
-First time using SSH with a private key. No password needed—just the key, and I was in!
 
 LEVEL 14 PASSWORD
 MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS

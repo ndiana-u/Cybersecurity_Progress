@@ -7,40 +7,25 @@ owned by user bandit7
 owned by group bandit6
 33 bytes in size
 
+# STEPS I TOOK 
+1. Used "find" to search for a file that:  
+   - Is a "regular file" ("-type f")  
+   - Belongs to "user bandit7" ("-user bandit7")  
+   - Belongs to "group bandit6" ("-group bandit6")  
+   - Has a "size of 33 bytes" ("-size 33c")  
 
-# STEPS
-command: find / -type f -user bandit7 -group bandit6 -size 33c
-Lots of error messages will show and can be filtered out using: 2> /dev/null
-the command becomes:  find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
-after finding the file,i viewed its content using cat 
-: cat /var/lib/dpkg/info/bandit7.password
-
-### **Steps I Took**  
-
-1. Used `find` to search for a file that:  
-   - Is a **regular file** (`-type f`)  
-   - Belongs to **user bandit7** (`-user bandit7`)  
-   - Belongs to **group bandit6** (`-group bandit6`)  
-   - Has a **size of 33 bytes** (`-size 33c`)  
-   ```sh
    find / -type f -user bandit7 -group bandit6 -size 33c
-   ```  
-2. The command returned a **lot of error messages** due to permission issues, so I filtered them out:  
-   ```sh
+
+2. The command returned a "lot of error messages" due to permission issues, so I filtered them out:  
    find / -type f -user bandit7 -group bandit6 -size 33c 2> /dev/null
-   ```  
+
 3. After finding the file, I opened it with:  
-   ```sh
    cat /var/lib/dpkg/info/bandit7.password
-   ```  
 
----
-
-### **Struggles & What I Learned**  
-
-- Running `find` without filtering errors made it hard to see the results.  
-- Redirecting errors to `/dev/null` (`2> /dev/null`) **cleaned up the output** and made it easier to spot the correct file.  
-- Once I found the file, a simple `cat` was all I needed to read its contents.  
+# STRUGGLES AND WHAT I LEARNT
+- Running "find" without filtering errors made it hard to see the results.  
+- Redirecting errors to "/dev/null" ("2> /dev/null") "cleaned up the output" and made it easier to spot the correct file.  
+- Once I found the file, a simple "cat" was all I needed to read its contents.  
 
 Filtering errors made the process much smoother!
 
@@ -51,8 +36,6 @@ Filtering errors made the process much smoother!
 -group bandit6 : Search for files that belongs to the group bandit6
 -size 33c : Look for files that are exactly 33 bytes in size (Find uses “c” to represent size in bytes)
 
-CHALLENGE
-I had to use google to help because i was clueless about how to search for files knowing their ownership.
 
 # LEVEL 7 PASSWORD
 morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj

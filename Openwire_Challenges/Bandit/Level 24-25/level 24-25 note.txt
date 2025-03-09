@@ -7,82 +7,45 @@ A daemon is listening on port 30002 and will give you the password for bandit25 
 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
 You do not need to create new connections each time.
 
-STEPS
-1. nc localhost 30002 - to connect to the daemon and to see how it accepts input.
-It required the password and secret pincode on a single line seperated by a space.
-2. mktemp -d : to create a temporary directory.
-3. cd /tmp/'temporary directory' : change to the temporary directory.
-4. chmod 700 -R /tmp/'temporary directory' : to change permission fo the directory to have read, write and execute privileges for the owner.
-4. nano bruteforce.sh : to create the bruteforce shell script.
-Inside the text file, write or paste your script and save.
-5. chmod +x bruteforce.sh : to add execute privilege to the bruteforce script.
-6. ./bruteforce.sh : to execute the shells script.
 
-This level was **really engaging** because I had to **brute-force a secret PIN** while interacting with a network service! Here's a **personalized breakdown** of what I did:  
+# STEPS I TOOK
 
----
+1. Checked how the service accepts input: 
+   nc localhost 30002 
+   This showed that the daemon expected the password and secret PIN on a single line, separated by a space.  
 
-### **STEPS**  
-
-1️⃣ **Checked how the service accepts input:**  
-   ```bash
-   nc localhost 30002
-   ```  
-   This showed that the daemon expected the **password and secret PIN on a single line**, separated by a space.  
-
-2️⃣ **Created a temporary working directory:**  
-   ```bash
-   mktemp -d
-   ```  
+2. Created a temporary working directory: 
+   mktemp -d 
    This ensured I had a clean and organized space for my brute-force script.  
 
-3️⃣ **Navigated to the temporary directory:**  
-   ```bash
-   cd /tmp/'temporary_directory'
-   ```  
+3. Navigated to the temporary directory: 
+   cd /tmp/'temporary_directory' 
 
-4️⃣ **Secured the directory by restricting permissions:**  
-   ```bash
-   chmod 700 -R /tmp/'temporary_directory'
-   ```  
+4. Secured the directory by restricting permissions: 
+   chmod 700 -R /tmp/'temporary_directory' 
    This prevented others from accessing my files while I worked.  
 
----
+Writing the Brute-Force Script 
+5. Created a shell script for brute-forcing the PIN: 
+   nano bruteforce.sh 
+   Inside the file, I wrote a script to try multiple PIN combinations automatically.  
 
-### **Writing the Brute-Force Script**  
-
-5️⃣ **Created a shell script for brute-forcing the PIN:**  
-   ```bash
-   nano bruteforce.sh
-   ```  
-   Inside the file, I wrote a script to **try multiple PIN combinations automatically**.  
-
-6️⃣ **Made the script executable:**  
-   ```bash
-   chmod +x bruteforce.sh
-   ```  
+6. Made the script executable: 
+   chmod +x bruteforce.sh 
    This allowed me to run it as a program.  
 
-7️⃣ **Executed the brute-force script:**  
-   ```bash
-   ./bruteforce.sh
-   ```  
-   The script **sent multiple PIN attempts to the server** until it found the correct one, revealing the password!  
+7. Executed the brute-force script: 
+   ./bruteforce.sh 
+   The script sent multiple PIN attempts to the serveruntil it found the correct one, revealing the password!  
 
----
+# SKILLS LEARNT
+- How to interact with network servicesusing `nc`.  
+- Automating brute-force attackswith a shell script.  
+- The importance of secure authentication mechanismsto prevent brute-force attacks.  
 
-### **What I Learned From This Level**  
-- **How to interact with network services** using `nc`.  
-- **Automating brute-force attacks** with a shell script.  
-- **The importance of secure authentication mechanisms** to prevent brute-force attacks.  
-
-This challenge was **fun and practical**, especially for understanding **network-based brute-force techniques!**
+This challenge was fun and practical, especially for understanding network-based brute-force techniques!
 
 LEVEL 25 PASSWORD
 iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
-
-SHELL script
-#!/bin/bash
-for i in {0000..9999}; do echo “UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i”; done | nc localhost 30002
 
 

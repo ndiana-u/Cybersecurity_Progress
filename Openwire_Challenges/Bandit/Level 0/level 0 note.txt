@@ -1,74 +1,31 @@
-LEVEL GOAL
+# DESCRIPTION
 The goal of this level is for you to log into the game using SSH.
- The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1.
-
-STEPS TO SOLVE
-Find out how to log in using ssh on command prompt.
-ssh username@root access = ssh bandit0@bandit.labs.overthewire.org
-To change port number "ssh bandit0@bandit.labs.overthewire.org -p 2220"
-
-ERRORS
-1. permission denied after trying to get access because it was still on the default port 22
-i tried changing the port in the sshd_config file using "nano /etc/ssh/sshd_config" but modifiaction to the file was denied.
-realized i didnt have root access.
-i got root access by running git bash as an administrator 
--search for git bash
--select run as administrator
-after going round nigeria trying to get root access and change my sshd_config file. even going as far as running my kali linux vm to log in i realized my error.
-to log in with ssh and change the port name is simple by "ssh username@remoteserver -p newPortNumber"
-
-2. crosscheck your username and password. Ensure you type in the right words.
-I wasted precious minutes on this error.
-
-
-
+ The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once 
+ logged in, go to the Level 1 page to find out how to beat Level 1.
  
 
----
-
-### **Steps to Solve**  
-
+# STEPS I TOOK  
 1. First, I needed to figure out how to log in using SSH from the command prompt.  
-   - The basic command:  
-     ```sh
-     ssh username@remote_server
-     ```
-   - For Bandit:  
-     ```sh
-     ssh bandit0@bandit.labs.overthewire.org
-     ```
-   - If the port is different (like **2220** for Bandit):  
-     ```sh
-     ssh bandit0@bandit.labs.overthewire.org -p 2220
-     ```  
+- The basic command:  
+  ssh username@remote_server
+- For Bandit:  
+  ssh bandit0@bandit.labs.overthewire.org
+- I had to change the port (2220 for Bandit):  
+  ssh bandit0@bandit.labs.overthewire.org -p 2220 
 
----
-
-### **Errors & What I Learned**  
-
-#### **1. Permission Denied – Wrong Port**  
-- Tried logging in but kept getting **"Permission denied."** Turns out SSH was still using the default port (**22**) instead of **2220**.  
+# ERRORS AND WHAT I LEARNT
+1. Permission Denied – Wrong Port 
+- Tried logging in but kept getting "Permission denied." Turns out SSH was still using the default port (22) instead of 2220.  
 - Thought I needed to change the port manually, so I tried editing `sshd_config`:  
-  ```sh
-  nano /etc/ssh/sshd_config
-  ```
-  **Nope.** Got denied.  
+ nano /etc/ssh/sshd_config
+  Nope. Got denied.  
 - Realized I didn’t have root access. Tried running Git Bash as an admin:  
-  - **Searched for "Git Bash"**  
-  - **Right-click → Run as administrator**  
-
-- After all that, I finally realized... I was overcomplicating it. 😭  
-  **I didn’t need to change any config files—just add `-p 2220` to the SSH command.**  
-  ```sh
+  - Searched for "Git Bash"  
+  - Right-click → Run as administrator.
+- After all that, I finally realized... I was overcomplicating it. 
+  I didn’t need to change any config files—just add "-p 2220" to the SSH command.
   ssh username@remoteserver -p newPortNumber
-  ```
 
----
-
-#### **2. Wrong Username/Password**  
+2. Wrong Username/Password  
 - Spent way too much time wondering why my login wasn’t working—only to realize I had typed the username or password wrong.  
-- **Lesson learned:** Always double-check before assuming it’s a deeper issue.  
-
----
-
-This version keeps it simple and in your voice. Let me know if it works!
+- Lesson learned: Always double-check before assuming it’s a deeper issue.  

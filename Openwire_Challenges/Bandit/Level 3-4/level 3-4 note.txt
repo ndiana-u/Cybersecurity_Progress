@@ -10,23 +10,19 @@ The password for the next level is stored in a hidden file in the inhere directo
 -or find to get the name of the file
 -To open the file 'cat ...Hiding-From-You'
 
-### **Steps I Took**  
-
+# STEPS I TOOK  
 1. Changed into the **inhere** directory:  
-   ```sh
    cd inhere
-   ```  
-2. Listed all files, including hidden ones:  
-   ```sh
-   ls -a
-   ```  
-3. Couldn’t spot the file immediately, so I used `find` to locate it.  
-4. Once I found the file, I opened it with:  
-   ```sh
-   cat ...Hiding-From-You
-   ```  
 
-Some files like to play hide and seek, but `ls -a` and `find` always help!
+2. Listed all files, including hidden ones:  
+   ls -a
+
+3. Couldn’t spot the file immediately, so I used "find" to locate it.  
+4. Once I found the file, I opened it with:  
+   cat ...Hiding-From-You  
+
+Lesson Learned- I learnt how to access hidden files.
+
 
 # LEVEL 4 PASSWORD
 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
